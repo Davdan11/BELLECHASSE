@@ -1,0 +1,106 @@
+.section {
+  padding: 8rem 0;
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--line-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 400;
+  color: var(--dark-blue);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  max-width: 800px;
+}
+
+.bigArrow {
+  width: 120px;
+  height: 120px;
+  color: var(--primary-red);
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-red);
+  color: white;
+  padding: 1.25rem 2.5rem;
+  border-radius: 999px; /* Pillbox shape */
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+}
+
+.phone {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone:hover {
+  color: var(--primary-red);
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 4.5rem;
+  }
+  .bigArrow {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+  .topRow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .phone {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,155 @@
+.section {
+  padding: 6rem 1rem;
+  background-color: #0b1b24; /* Dark blue from Bellechasse theme */
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.textContent {
+  max-width: 500px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #e52e2e;
+}
+
+.formCard {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  color: #1a2933;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #0b1b24;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #536873;
+  margin-bottom: 0.5rem;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f7f9fa;
+  border: 1px solid #eaeaea;
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #0b1b24;
+  transition: all 0.3s ease;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: #e52e2e;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(229, 46, 46, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: #e52e2e;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submitBtn:hover {
+  background-color: #c91e1e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(229, 46, 46, 0.2);
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .textContent {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .contactInfo {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .formCard {
+    padding: 2rem;
+  }
+  .title {
+    font-size: 2.25rem;
+  }
+}

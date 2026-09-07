@@ -1,0 +1,41 @@
+.footer {
+  padding: 2rem 0;
+  background-color: var(--bg-white);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+  width: auto;
+  mix-blend-mode: multiply; /* Removes white background from non-PNG logos */
+}
+
+.info {
+  display: flex;
+  gap: 4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.separator {
+  color: var(--text-muted);
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .info {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

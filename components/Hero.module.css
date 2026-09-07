@@ -1,0 +1,160 @@
+.heroWrapper {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.heroCard {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('/hvac-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 5rem;
+  max-width: 600px;
+}
+
+.title {
+  color: #0b1b24;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: #1a2933;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e52e2e;
+  color: white;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(229, 46, 46, 0.3);
+}
+
+.ctaButton:hover {
+  background-color: #c91e1e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 46, 46, 0.4);
+}
+
+.ctaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: white;
+  color: #e52e2e;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.bottomLeftBtn {
+  position: absolute;
+  bottom: 3rem;
+  left: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e52e2e;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.bottomLeftBtn:hover {
+  transform: translateY(3px);
+}
+
+.bottomRightBadge {
+  position: absolute;
+  bottom: 3rem;
+  right: 5rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  font-weight: 600;
+  color: #0b1b24;
+}
+
+.windIcon {
+  color: #e52e2e;
+}
+
+@media (max-width: 1024px) {
+  .heroOverlay {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroCard {
+    min-height: 70vh;
+  }
+  .heroOverlay {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  }
+  .heroContent {
+    padding: 3rem 2rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .bottomLeftBtn {
+    left: 2rem;
+    bottom: 2rem;
+  }
+  .bottomRightBadge {
+    right: 2rem;
+    bottom: 2rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}

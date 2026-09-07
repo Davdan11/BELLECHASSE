@@ -1,0 +1,133 @@
+.section {
+  padding: 6rem 0;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--line-color);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--dark-blue);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-red);
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d11;
+  transform: translateY(-2px);
+}
+
+.btnArrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.button:hover .btnArrow {
+  transform: translate(2px, -2px);
+}
+
+.phone {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone:hover {
+  color: var(--primary-red);
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.text {
+  font-size: 1.1rem;
+  color: var(--dark-blue);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.bigArrowContainer {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bigArrow {
+  width: 120px;
+  height: 120px;
+  color: var(--primary-red);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .rightCol {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .bigArrowContainer {
+    margin-top: 0;
+  }
+  .bigArrow {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .rightCol {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bigArrowContainer {
+    display: none;
+  }
+}

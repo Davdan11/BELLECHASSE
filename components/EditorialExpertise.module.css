@@ -1,0 +1,167 @@
+.section {
+  position: relative;
+  padding: 4rem 0; /* Reduced padding top and bottom */
+  background-color: var(--dark-blue);
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.sideImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* Focus near the top to keep faces visible */
+  opacity: 0.4; /* Dimmed so text is readable */
+  z-index: 1;
+  /* Blend out towards the right where the text is */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 80%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 80%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto 1fr; /* Adjust columns to fit content naturally */
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.leftColumn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.yearText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28vw; /* Immense font size relative to viewport width */
+  font-weight: 200; /* Lighter weight for a more elegant outline */
+  line-height: 0.8; /* Tighten line-height to remove internal spacing */
+  letter-spacing: -0.05em;
+  color: transparent;
+  /* Darker "blanc foncé" stroke so it's visible against white backgrounds */
+  -webkit-text-stroke: 3px rgba(200, 200, 200, 0.8);
+  /* Added a drop shadow to ensure it always pops from the background */
+  filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+  margin-bottom: 1rem;
+  margin-top: -2rem; /* Pull it up if needed */
+}
+
+.leftDesc {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem); /* Significantly enlarged */
+  font-weight: 400; /* Slightly bolder for readability */
+  color: white;
+  margin-left: 1rem;
+  text-shadow: 0px 2px 10px rgba(0,0,0,0.8); /* Shadow to ensure it's readable over the image */
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  color: var(--primary-red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 400px;
+  margin-bottom: 4rem;
+}
+
+.process {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+}
+
+.processLine {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.link:hover {
+  border-bottom-color: white;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .yearText {
+    font-size: 10rem;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+  .content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .yearText {
+    font-size: 8rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .process {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .processLine {
+    display: none;
+  }
+}

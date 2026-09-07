@@ -1,0 +1,59 @@
+.marqueeSection {
+  background-color: #ffffff; /* White background to hide non-transparent logo backgrounds */
+  padding: 3rem 0;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  width: max-content;
+  /* Animation to scroll left */
+  animation: scroll 30s linear infinite;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  /* Add subtle hover effect */
+  transition: transform 0.3s ease;
+}
+
+.logoItem:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate left by a significant amount to ensure seamless looping */
+    /* Since we triple the logos, we translate by 33.33% to seamlessly restart */
+    transform: translateX(-33.33%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeSection {
+    padding: 2rem 0;
+  }
+  
+  .marqueeTrack {
+    gap: 3rem;
+  }
+  
+  .logoItem {
+    height: 40px;
+  }
+}

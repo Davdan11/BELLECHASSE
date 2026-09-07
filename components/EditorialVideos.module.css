@@ -1,0 +1,142 @@
+.section {
+  padding: clamp(2rem, 4vw, 4rem) 0; /* Reduced padding */
+  background-color: var(--bg-white);
+}
+
+.sectionLabel {
+  color: var(--primary-red);
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem; /* Tighter margin */
+  display: block;
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--dark-blue);
+  letter-spacing: -0.03em;
+  margin-bottom: clamp(2rem, 4vw, 3rem); /* Tighter margin */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  group: video-card;
+}
+
+.imgWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1; /* roughly square in the mockup */
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .imgWrapper img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover .overlay {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.playBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.card:hover .playBtn {
+  background-color: white;
+  color: var(--dark-blue);
+  transform: scale(1.1);
+}
+
+.playIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px; /* visually center play icon */
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--dark-blue);
+  margin-bottom: 0.75rem;
+}
+
+.watchLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  transition: color 0.3s ease;
+}
+
+.card:hover .watchLink {
+  color: var(--primary-red);
+}
+
+.watchLink svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .watchLink svg {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

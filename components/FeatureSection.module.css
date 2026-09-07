@@ -1,0 +1,200 @@
+.section {
+  padding: 6rem 5rem;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  color: #e52e2e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: #0b1b24;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  color: #174B60;
+  font-size: 1.25rem;
+  max-width: 320px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: left;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+}
+
+.cardLeft {
+  background-color: #f6f8f9;
+}
+
+.cardRight {
+  background-image: url('/section-5-img.webp'); /* Fallback/Placeholder */
+  background-size: cover;
+  background-position: center;
+}
+
+.cardRightOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%);
+  z-index: 1;
+}
+
+.cardImgLeft {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-height: 60%;
+  object-fit: contain;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.cardTitleLeft {
+  color: #0b1b24;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.cardSubtitleLeft {
+  color: #536873;
+  font-size: 1.1rem;
+}
+
+.cardTitleRight {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.btnRed, .btnWhite {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btnRed {
+  background-color: #e52e2e;
+  color: #fff;
+}
+
+.btnWhite {
+  background-color: #fff;
+  color: #e52e2e;
+}
+
+.btnRed:hover, .btnWhite:hover {
+  transform: scale(1.05);
+}
+
+.bottomLinkContainer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linkAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #0b1b24;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.linkAll::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e52e2e;
+}
+
+.linkArrow {
+  color: #e52e2e;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .card {
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+  .cardTitleLeft {
+    font-size: 1.5rem;
+  }
+}

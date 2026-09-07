@@ -1,0 +1,71 @@
+.section {
+  padding: 2rem 0; /* Reduced padding to decrease height */
+  background-color: var(--dark-blue);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center everything instead of space-between */
+  gap: clamp(4rem, 10vw, 12rem); /* Controlled gap between text and 5$ */
+}
+
+.leftCol {
+  display: flex;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
+}
+
+.logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  /* If the logo isn't white already, we can use filter */
+  filter: brightness(0) invert(1);
+}
+
+.textWrapper {
+  max-width: 450px;
+}
+
+.title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.amount {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(12rem, 25vw, 20rem); /* Enlarged significantly */
+  font-weight: 200;
+  line-height: 0.8; /* Tighter line height for large text */
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.4);
+  letter-spacing: -0.05em;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .leftCol {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .amount {
+    margin-right: 0;
+  }
+}

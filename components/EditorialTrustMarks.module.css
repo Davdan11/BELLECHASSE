@@ -1,0 +1,69 @@
+.section {
+  padding: 3rem 0;
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--line-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  font-size: clamp(1rem, 1.5vw, 1.5rem); /* Enlarged label significantly */
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center; /* Center the label above the logos */
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.logos img {
+  height: clamp(35px, 5vw, 55px); /* Slightly enlarged logos but fit screen */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logos img:hover {
+  transform: scale(1.05);
+}
+
+.scaleUp {
+  transform: scale(1.4);
+}
+
+.scaleUp:hover {
+  transform: scale(1.47);
+}
+
+.rbq {
+  font-size: clamp(0.85rem, 1vw, 1rem); /* Reasonably enlarged RBQ text */
+  font-weight: 600;
+  color: var(--text-main);
+  border-left: 1px solid var(--line-color);
+  padding-left: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .logos {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .rbq {
+    border-left: none;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,73 @@
+.navSection {
+  padding: 0 0 6rem 0;
+  background-color: var(--bg-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 1rem 0; /* Some padding for the box itself */
+  margin: 3rem 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to left */
+  gap: 1rem; /* Space between text and arrow if needed, but we'll use space-between for the whole flex */
+  text-decoration: none;
+  padding: 1.5rem 3rem; /* Adjusted padding to match the airy feel */
+  background-color: transparent; /* No white background, let the gray show through */
+  transition: all 0.3s ease;
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1; /* Take up remaining space so arrow is pushed to right */
+}
+
+.number {
+  color: var(--primary-red);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.name {
+  color: var(--dark-blue);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-red);
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover .name {
+  color: var(--primary-red);
+}
+
+.card:hover .arrow {
+  transform: translate(3px, -3px);
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
