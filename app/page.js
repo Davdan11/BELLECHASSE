@@ -9,6 +9,7 @@ import EditorialDaikin from '../components/EditorialDaikin';
 import EditorialVideos from '../components/EditorialVideos';
 import EditorialCharity from '../components/EditorialCharity';
 import EditorialFinancing from '../components/EditorialFinancing';
+import EditorialFAQ from '../components/EditorialFAQ';
 import EditorialFooterFull from '../components/EditorialFooterFull';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <EditorialVideos />
         <EditorialCharity />
         <EditorialFinancing />
+        <EditorialFAQ />
       </main>
       <EditorialFooterFull />
     </>
