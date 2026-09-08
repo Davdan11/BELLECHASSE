@@ -123,8 +123,136 @@
   height: 16px;
 }
 
+/* Mobile menu */
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+}
+
+.burgerLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: white;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper.scrolled .burgerLine,
+.wrapper.lightTheme .burgerLine {
+  background-color: var(--navy);
+  box-shadow: none;
+}
+
+.burgerOpen1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burgerOpen2 {
+  opacity: 0;
+}
+
+.burgerOpen3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobileMenu {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .links, .phone {
+    display: none;
+  }
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+  }
+  .actions {
+    gap: 0.5rem;
+  }
+  .burger {
+    display: flex;
+  }
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    overflow-y: auto;
+    padding: 0.5rem 20px 6rem;
+    border-top: 1px solid var(--line-color);
+  }
+  .mobileMenu[hidden] {
+    display: none;
+  }
+  .mobileLinks {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobileLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line-color);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--navy);
+  }
+  .mobileLinkActive {
+    color: var(--primary-red);
+  }
+  .mobileLink svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-red);
+  }
+  .mobileFooter {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--navy);
+  }
+  .mobilePhone {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--navy);
+  }
+  .mobileAreas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .mobileAreas a {
+    font-size: 0.8rem;
+    border: 1px solid var(--line-color);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    color: var(--navy);
+  }
+}
+
+@media (max-width: 480px) {
+  .logoImg {
+    height: 44px;
+  }
+  .btn span {
     display: none;
   }
 }

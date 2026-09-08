@@ -42,7 +42,7 @@ export default function EditorialContact() {
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>
           </Link>
-          <a href="tel:(514)494-0400" className={styles.phone}>(514) 494-0400</a>
+          <a href="tel:+15144940400" className={styles.phone}>(514) 494-0400</a>
         </motion.div>
         
       </div>

@@ -1,63 +1,120 @@
-import React from 'react';
+import { SITE_URL, ALL_CITIES, PHONE_SCHEMA, RBQ } from '../../lib/site';
 
 export default function StructuredData() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
+    '@context': 'https://schema.org',
+    '@graph': [
       {
-        "@type": "HVACBusiness",
-        "@id": "https://bellechasseenergie.com/#organization",
-        "name": "Bellechasse Énergie",
-        "url": "https://bellechasseenergie.com",
-        "logo": "https://bellechasseenergie.com/logo-png.png",
-        "image": "https://bellechasseenergie.com/hvac-hero.jpg",
-        "description": "Entreprise familiale spécialisée en vente, installation, et réparation de thermopompes, systèmes de climatisation et chauffage à Montréal depuis 1962.",
-        "telephone": "+1-514-494-0400",
-        "email": "info@bellechasseenergie.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Montréal",
-          "addressLocality": "Montréal",
-          "addressRegion": "QC",
-          "addressCountry": "CA"
+        '@type': ['HVACBusiness', 'LocalBusiness', 'Organization'],
+        '@id': `${SITE_URL}/#organization`,
+        name: 'Bellechasse Énergie',
+        alternateName: 'Bellechasse Energie',
+        legalName: 'Bellechasse Énergie',
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/logo-png.png`,
+          width: 1024,
+          height: 341,
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "45.5017",
-          "longitude": "-73.5673"
+        image: `${SITE_URL}/hero.jpg`,
+        description:
+          "Entreprise familiale depuis 1962 spécialisée dans la vente, l'installation, l'entretien et la réparation de thermopompes, systèmes de climatisation, fournaises et échangeurs d'air dans le Grand Montréal, à Laval, sur la Rive-Nord et la Rive-Sud. Détaillant autorisé Daikin.",
+        slogan: 'Le confort, maîtrisé.',
+        foundingDate: '1962',
+        founder: { '@type': 'Person', name: 'Jacques' },
+        telephone: PHONE_SCHEMA,
+        email: 'info@bellechasseenergie.com',
+        priceRange: '$$',
+        currenciesAccepted: 'CAD',
+        paymentAccepted: 'Cash, Credit Card, Debit Card, Financing',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Montréal',
+          addressRegion: 'QC',
+          addressCountry: 'CA',
         },
-        "openingHoursSpecification": [
+        geo: { '@type': 'GeoCoordinates', latitude: 45.5017, longitude: -73.5673 },
+        areaServed: [
+          { '@type': 'AdministrativeArea', name: 'Grand Montréal' },
+          { '@type': 'City', name: 'Laval' },
+          { '@type': 'AdministrativeArea', name: 'Rive-Nord' },
+          { '@type': 'AdministrativeArea', name: 'Rive-Sud' },
+          ...ALL_CITIES.map((n) => ({ '@type': 'City', name: n })),
+        ],
+        openingHoursSpecification: [
           {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "17:00"
-          }
-        ],
-        "sameAs": [
-          "https://www.facebook.com/bellechasseenergie"
-        ],
-        "priceRange": "$$",
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": "45.5017",
-            "longitude": "-73.5673"
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '08:00',
+            closes: '17:00',
           },
-          "geoRadius": "50000"
-        }
+        ],
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            telephone: PHONE_SCHEMA,
+            contactType: 'sales',
+            areaServed: 'CA-QC',
+            availableLanguage: ['fr', 'en'],
+          },
+          {
+            '@type': 'ContactPoint',
+            telephone: PHONE_SCHEMA,
+            contactType: 'customer service',
+            areaServed: 'CA-QC',
+            availableLanguage: ['fr', 'en'],
+          },
+        ],
+        sameAs: ['https://www.facebook.com/bellechasseenergie'],
+        brand: [
+          { '@type': 'Brand', name: 'Daikin' },
+          { '@type': 'Brand', name: 'Moovair' },
+          { '@type': 'Brand', name: 'Tosot' },
+          { '@type': 'Brand', name: 'Aldes' },
+          { '@type': 'Brand', name: 'Mainline' },
+          { '@type': 'Brand', name: 'Steffes' },
+        ],
+        knowsAbout: [
+          'Thermopompe', 'Thermopompe centrale', 'Thermopompe murale', 'Climatisation', 'Air climatisé central',
+          'Fournaise électrique', 'Conversion du mazout', "Échangeur d'air", 'Subventions LogisVert', 'Rénoclimat',
+        ],
+        memberOf: { '@type': 'Organization', name: 'Corporation des maîtres mécaniciens en tuyauterie du Québec (CMMTQ)' },
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'Licence RBQ',
+          name: `Licence RBQ ${RBQ}`,
+          recognizedBy: { '@type': 'Organization', name: 'Régie du bâtiment du Québec' },
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Services de chauffage, climatisation et ventilation',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Installation de thermopompe', url: `${SITE_URL}/installation-thermopompe` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Thermopompe centrale', url: `${SITE_URL}/thermopompe-centrale-montreal` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Thermopompe murale', url: `${SITE_URL}/thermopompe-murale-montreal` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Climatisation', url: `${SITE_URL}/climatisation-montreal` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Chauffage résidentiel', url: `${SITE_URL}/chauffage-montreal` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Remplacement de fournaise au mazout', url: `${SITE_URL}/remplacement-fournaise-mazout` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Entretien et réparation de thermopompe', url: `${SITE_URL}/entretien-reparation-thermopompe` } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: "Installation d'échangeur d'air", url: `${SITE_URL}/echangeur-air-montreal` } },
+          ],
+        },
       },
       {
-        "@type": "WebSite",
-        "@id": "https://bellechasseenergie.com/#website",
-        "url": "https://bellechasseenergie.com",
-        "name": "Bellechasse Énergie",
-        "publisher": {
-          "@id": "https://bellechasseenergie.com/#organization"
-        }
-      }
-    ]
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: 'Bellechasse Énergie',
+        inLanguage: 'fr-CA',
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/blogue?q={search_term_string}` },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
   };
 
   return (

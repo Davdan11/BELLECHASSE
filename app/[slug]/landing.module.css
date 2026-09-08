@@ -1,0 +1,404 @@
+.hero {
+  padding: 6.5rem 0 2.5rem;
+  background-color: var(--bg-main);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--navy);
+  margin-bottom: 1.75rem;
+}
+
+.breadcrumb span {
+  opacity: 0.5;
+}
+
+.breadcrumb .current {
+  opacity: 0.8;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badges li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid #c9ced6;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--navy);
+}
+
+.phone svg {
+  width: 22px;
+  height: 22px;
+  color: var(--primary-red);
+}
+
+.phone:hover {
+  color: var(--primary-red);
+}
+
+.hours {
+  font-size: 0.85rem;
+  color: var(--navy);
+  opacity: 0.8;
+}
+
+.heroForm {
+  position: sticky;
+  top: 90px;
+}
+
+/* Answer */
+.answerSection {
+  background-color: var(--bg-main);
+  padding-bottom: 2rem;
+}
+
+.answer {
+  border-left: 3px solid var(--primary-red);
+  background-color: #f6f7f9;
+  padding: 1.25rem 1.5rem;
+  max-width: 900px;
+}
+
+.answerLabel {
+  display: block;
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.answer p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+/* Content */
+.content {
+  background-color: var(--bg-main);
+  padding-bottom: 2.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.block {
+  border-top: 1px solid #c9ced6;
+  padding-top: 1.25rem;
+}
+
+.blockNum {
+  display: block;
+  color: var(--primary-red);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.block h2 {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.block p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--navy);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sideImage {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #eef1f5;
+}
+
+.sideImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sideBlock {
+  border-top: 1px solid #c9ced6;
+  padding-top: 1rem;
+}
+
+.sideLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.sideList li a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e3e7ed;
+  font-size: 0.95rem;
+  color: var(--navy);
+}
+
+.sideList li a span {
+  color: var(--primary-red);
+}
+
+.sideList li a svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-red);
+  margin-left: auto;
+}
+
+.sideList li a:hover {
+  color: var(--primary-red);
+}
+
+.why li {
+  font-size: 0.9rem;
+  color: var(--navy);
+  padding: 0.3rem 0 0.3rem 1.1rem;
+  position: relative;
+}
+
+.why li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-red);
+}
+
+/* Areas */
+.areas {
+  background-color: #f6f7f9;
+  padding: 2.5rem 0;
+}
+
+.areasTitle {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.sectorList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sectorList li {
+  font-size: 0.85rem;
+  color: var(--navy);
+  background: white;
+  border: 1px solid #dde2e9;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Other areas */
+.otherAreas {
+  background-color: var(--bg-main);
+  padding: 1.5rem 0 2rem;
+}
+
+.areaLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border-top: 1px solid #c9ced6;
+}
+
+.areaLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem 0.9rem 0;
+  border-bottom: 1px solid #c9ced6;
+  font-size: 0.95rem;
+  color: var(--navy);
+}
+
+.areaLinks a:hover {
+  color: var(--primary-red);
+}
+
+.areaLinks a svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-red);
+}
+
+/* Final CTA */
+.finalCta {
+  background-color: #0f2a47;
+  color: white;
+  padding: 2.5rem 0;
+  border-bottom: 3px solid var(--primary-red);
+}
+
+.finalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.finalRow h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.finalRow p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.finalActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.5rem;
+  background-color: var(--primary-red);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.finalPhone {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: white;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .heroGrid,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroForm {
+    position: static;
+  }
+  .finalRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 5.5rem;
+  }
+  .finalActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

@@ -50,7 +50,7 @@ function validate(values) {
   return errors;
 }
 
-export default function ContactRequestForm() {
+export default function ContactRequestForm({ compact = false, source = 'contact' }) {
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
@@ -72,10 +72,13 @@ export default function ContactRequestForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, source, page: typeof window !== 'undefined' ? window.location.pathname : '' }),
       });
       if (!res.ok) throw new Error('bad status');
       setStatus('sent');
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { source, need: values.need });
+      }
     } catch {
       setStatus('error');
     }
@@ -98,10 +101,10 @@ export default function ContactRequestForm() {
   }
 
   return (
-    <form className={styles.card} onSubmit={handleSubmit} noValidate>
-      <span className={styles.eyebrow}>FAISONS LE PREMIER PAS</span>
-      <h2 className={styles.title}>Comment peut-on<br />vous aider?</h2>
-      <p className={styles.subtitle}>Quelques détails pour mieux vous conseiller.</p>
+    <form className={`${styles.card} ${compact ? styles.compact : ''}`} onSubmit={handleSubmit} noValidate>
+      <span className={styles.eyebrow}>{compact ? 'SOUMISSION GRATUITE' : 'FAISONS LE PREMIER PAS'}</span>
+      <h2 className={styles.title}>{compact ? <>Obtenez votre prix<br />en 24 heures.</> : <>Comment peut-on<br />vous aider?</>}</h2>
+      <p className={styles.subtitle}>{compact ? 'Un conseiller vous rappelle pour planifier l’évaluation gratuite.' : 'Quelques détails pour mieux vous conseiller.'}</p>
 
       <fieldset className={styles.fieldset}>
         <legend className={styles.groupLabel}>Votre besoin</legend>

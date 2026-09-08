@@ -1,14 +1,24 @@
+import { Outfit } from 'next/font/google';
 import './globals.css';
 import StructuredData from '../components/SEO/StructuredData';
+import Analytics from '../components/Analytics';
+import StickyCallBar from '../components/StickyCallBar';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-outfit',
+});
 
 export const metadata = {
   metadataBase: new URL('https://bellechasseenergie.com'),
   title: {
-    default: 'Bellechasse Énergie | Chauffage et Climatisation à Montréal',
+    default: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
     template: '%s | Bellechasse Énergie'
   },
-  description: 'Experts en installation de thermopompes, systèmes de climatisation et chauffage (Daikin, Moovair) à Montréal depuis 1962. Obtenez une soumission gratuite.',
-  keywords: ['thermopompe', 'climatisation', 'chauffage', 'Montréal', 'Daikin', 'Moovair', 'Bellechasse Énergie', 'fournaise', 'échangeur d\'air'],
+  description: "Installation de thermopompes, climatisation, chauffage et échangeurs d'air à Montréal, Laval, Rive-Nord et Rive-Sud depuis 1962. Détaillant autorisé Daikin. Soumission gratuite : (514) 494-0400.",
+  keywords: ['thermopompe', 'thermopompe Montréal', 'climatisation', 'chauffage', 'Montréal', 'Laval', 'Rive-Nord', 'Rive-Sud', 'Daikin', 'Moovair', 'Bellechasse Énergie', 'fournaise', 'échangeur d\'air', 'installation thermopompe'],
   authors: [{ name: 'Bellechasse Énergie' }],
   creator: 'Bellechasse Énergie',
   publisher: 'Bellechasse Énergie',
@@ -18,16 +28,16 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Bellechasse Énergie | Chauffage et Climatisation à Montréal',
-    description: 'Experts en installation de thermopompes, systèmes de climatisation et chauffage (Daikin, Moovair) à Montréal depuis 1962.',
+    title: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
+    description: "Installation de thermopompes, climatisation et chauffage dans le Grand Montréal depuis 1962. Détaillant autorisé Daikin. Soumission gratuite.",
     url: 'https://bellechasseenergie.com',
     siteName: 'Bellechasse Énergie',
     images: [
       {
-        url: '/hvac-hero.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bellechasse Énergie - Experts CVC à Montréal',
+        url: '/hero.jpg',
+        width: 1376,
+        height: 768,
+        alt: 'Thermopompe Daikin installée par Bellechasse Énergie à Montréal',
       },
     ],
     locale: 'fr_CA',
@@ -35,9 +45,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bellechasse Énergie | Chauffage et Climatisation à Montréal',
+    title: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
     description: 'Experts en installation de thermopompes, climatisation et chauffage depuis 1962.',
-    images: ['/hvac-hero.jpg'],
+    images: ['/hero.jpg'],
   },
   robots: {
     index: true,
@@ -55,16 +65,23 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: '#0055a4',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth">
+    <html lang="fr-CA" data-scroll-behavior="smooth" className={outfit.variable}>
       <head>
         <StructuredData />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <StickyCallBar />
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -16,6 +16,15 @@ export default function EditorialProducts() {
     "Échangeur d'air"
   ];
 
+  const categorySlug = {
+    "Thermopompe centrale": "thermopompe-centrale",
+    "Thermopompe murale": "thermopompe-murale",
+    "Air climatisé central": "air-climatise-central",
+    "Air climatisé mural": "air-climatise-mural",
+    "Fournaise à air pulsé": "fournaise-air-pulse",
+    "Échangeur d'air": "echangeur-air"
+  };
+
   const productsMap = {
     "Thermopompe centrale": [
       { name: "Daikin Fit", img: "/tab-daikin-fit.webp" },
@@ -116,7 +125,7 @@ export default function EditorialProducts() {
         >
           {currentProducts.map((product, i) => (
             <motion.div variants={itemVariants} key={product.name}>
-              <Link href={`/produits/${product.name.toLowerCase().replace(/ /g, '-')}`} className={styles.productCard}>
+              <Link href={`/produits/${categorySlug[activeTab]}#${product.name.toLowerCase().replace(/ /g, '-')}`} className={styles.productCard}>
                 <div className={styles.imgWrapper}>
                   <img src={product.img} alt={product.name} />
                 </div>

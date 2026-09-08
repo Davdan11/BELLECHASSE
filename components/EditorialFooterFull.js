@@ -26,8 +26,9 @@ export default function EditorialFooterFull() {
               <Link href="/produits" className={styles.link}>Nos produits</Link>
               <Link href="/nos-solutions#thermopompes-centrales" className={styles.link}>Thermopompes centrales</Link>
               <Link href="/nos-solutions#thermopompes-murales" className={styles.link}>Thermopompes murales</Link>
-              <Link href="/nos-solutions#climatisation" className={styles.link}>Climatisation</Link>
-              <Link href="/nos-solutions#chauffage" className={styles.link}>Fournaises</Link>
+              <Link href="/produits/air-climatise-central" className={styles.link}>Climatisation</Link>
+              <Link href="/produits/fournaise-air-pulse" className={styles.link}>Fournaises</Link>
+              <Link href="/produits/echangeur-air" className={styles.link}>Échangeurs d&apos;air</Link>
             </div>
           </div>
 
@@ -36,10 +37,11 @@ export default function EditorialFooterFull() {
             <span className={styles.colTitle}>À découvrir</span>
             <div className={styles.links}>
               <Link href="/notre-expertise" className={styles.link}>Notre expertise</Link>
-              <Link href="/#financement" className={styles.link}>Financement et subventions</Link>
-              <Link href="/promotions" className={styles.link}>Promotions</Link>
-              <Link href="/manuels" className={styles.link}>Manuels</Link>
-              <Link href="/temoignages" className={styles.link}>Témoignages</Link>
+              <Link href="/financement" className={styles.link}>Financement et subventions</Link>
+              <Link href="/thermopompe-montreal" className={styles.link}>Thermopompe Montréal</Link>
+              <Link href="/thermopompe-laval" className={styles.link}>Thermopompe Laval</Link>
+              <Link href="/thermopompe-rive-nord" className={styles.link}>Thermopompe Rive-Nord</Link>
+              <Link href="/thermopompe-rive-sud" className={styles.link}>Thermopompe Rive-Sud</Link>
               <Link href="/blogue" className={styles.link}>Blogue</Link>
               <Link href="/contact" className={styles.link}>Contact</Link>
             </div>
@@ -48,7 +50,7 @@ export default function EditorialFooterFull() {
           {/* Col 4 */}
           <div className={styles.col}>
             <span className={styles.colTitle}>Nous joindre</span>
-            <a href="tel:(514)494-0400" className={styles.phone}>(514) 494-0400</a>
+            <a href="tel:+15144940400" className={styles.phone}>(514) 494-0400</a>
             <p className={styles.hours}>
               Lundi au vendredi<br />
               8 h à 17 h<br />
@@ -66,7 +68,7 @@ export default function EditorialFooterFull() {
 
       <div className={styles.bottomBar}>
         <div className={`container ${styles.bottomContent}`}>
-          <span>© 2026 Bellechasse Energie. Tous droits réservés.</span>
+          <span>© 2026 Bellechasse Énergie. Tous droits réservés. RBQ 8103-2112-33</span>
           <Link href="/confidentialite" className={styles.bottomLink}>
             Politique de confidentialité
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

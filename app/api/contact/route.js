@@ -25,6 +25,8 @@ export async function POST(request) {
     city: clean(body.city, 80),
     message: clean(body.message, 2000),
     consent: body.consent === true,
+    source: clean(body.source, 80) || 'contact',
+    page: clean(body.page, 200),
     receivedAt: new Date().toISOString(),
     userAgent: request.headers.get('user-agent') || '',
     referer: request.headers.get('referer') || '',
@@ -54,7 +56,8 @@ export async function POST(request) {
       lead.message || '(aucun détail)',
       '',
       `Reçu le : ${lead.receivedAt}`,
-      `Page : ${lead.referer}`,
+      `Source : ${lead.source}`,
+      `Page : ${lead.page || lead.referer}`,
     ].join('\n');
 
     const res = await fetch('https://api.resend.com/emails', {

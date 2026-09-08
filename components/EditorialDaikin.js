@@ -38,7 +38,7 @@ export default function EditorialDaikin() {
             Service d'installation de thermopompes dans le Grand Montréal.
           </p>
           
-          <Link href="/produits/daikin" className={styles.btn}>
+          <Link href="/produits/thermopompe-centrale" className={styles.btn}>
             Découvrir Daikin
             <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 19L19 5M19 5v14M19 5H5" />

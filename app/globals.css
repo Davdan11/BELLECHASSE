@@ -9,7 +9,7 @@
   --bg-main: #ffffff;
   --navy: #1e3d61;
   
-  --font-main: 'Outfit', sans-serif;
+  --font-main: var(--font-outfit), 'Outfit', system-ui, sans-serif;
 }
 
 * {

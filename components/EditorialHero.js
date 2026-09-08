@@ -20,7 +20,7 @@ export default function EditorialHero() {
   return (
     <section className={styles.hero}>
       {/* Background Image */}
-      <img src="/hero.jpg" alt="Le confort maîtrisé - Bellechasse Énergie" className={styles.bg} />
+      <img src="/hero.jpg" alt="Thermopompe Daikin installée par Bellechasse Énergie à Montréal" className={styles.bg} fetchPriority="high" />
       <div className={styles.overlay}></div>
 
       {/* Main Content */}

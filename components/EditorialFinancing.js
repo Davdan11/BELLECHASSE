@@ -5,7 +5,7 @@ import styles from './EditorialFinancing.module.css';
 
 export default function EditorialFinancing() {
   return (
-    <section className={styles.section}>
+    <section id="financement" className={styles.section}>
       <div className={`container ${styles.content}`}>
         
         <motion.div 
@@ -49,8 +49,8 @@ export default function EditorialFinancing() {
               </svg>
             </Link>
             
-            <Link href="/promotions" className={styles.link}>
-              Voir les promotions
+            <Link href="/blogue/subventions-thermopompe-quebec" className={styles.link}>
+              Comprendre les subventions
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 19L19 5M19 5v14M19 5H5" />
               </svg>

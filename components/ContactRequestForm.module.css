@@ -320,3 +320,51 @@
     gap: 0;
   }
 }
+
+/* Compact variant for landing pages */
+.compact {
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+.compact .title {
+  font-size: 1.5rem;
+}
+
+.compact .subtitle {
+  margin-bottom: 1rem;
+}
+
+.compact .needs {
+  gap: 0.5rem;
+}
+
+.compact .need {
+  padding: 0.8rem 0.5rem 0.7rem;
+  gap: 0.35rem;
+}
+
+.compact .needIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.compact .needLabel {
+  font-size: 0.78rem;
+}
+
+.compact .field {
+  margin-bottom: 0.8rem;
+}
+
+.compact .field input,
+.compact .field textarea {
+  padding: 0.65rem 0.8rem;
+}
+
+.compact .field textarea {
+  min-height: 70px;
+}
+
+.compact .fieldset {
+  margin-bottom: 1rem;
+}

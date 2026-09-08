@@ -30,7 +30,7 @@ export default function EditorialTrustMarks() {
           {/* CMMTQ */}
           <img src="/logo-cmmtq.webp" alt="CMMTQ" />
           
-          <span className={styles.rbq}>RBQ 8103-212-33</span>
+          <span className={styles.rbq}>RBQ 8103-2112-33</span>
         </motion.div>
       </div>
     </section>
