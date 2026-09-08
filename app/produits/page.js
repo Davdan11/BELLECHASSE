@@ -15,7 +15,7 @@ export const metadata = {
 export default function ProduitsPage() {
   return (
     <>
-      <EditorialNavbar />
+      <EditorialNavbar theme="light" />
       <main>
         <ProductsHero />
         <ProductsCategoryNav />

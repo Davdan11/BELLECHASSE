@@ -1,0 +1,101 @@
+.section {
+  background-color: #0f2a47;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 300px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 2rem 2.5rem max(40px, calc((100vw - 1400px) / 2 + 40px));
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.photo {
+  min-height: 300px;
+  background-color: #1a3d63;
+  background-image:
+    linear-gradient(180deg, rgba(15, 42, 71, 0.15) 0%, rgba(15, 42, 71, 0) 40%),
+    url('/montreal-skyline.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.cities {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: #0b2340;
+}
+
+.citiesRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.1rem 40px;
+}
+
+.city {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  margin-left: clamp(2rem, 8vw, 7rem);
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .text {
+    padding: 2.5rem 40px;
+  }
+  .photo {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text {
+    padding: 2rem 20px;
+  }
+  .citiesRow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    padding: 1rem 20px;
+  }
+  .dot {
+    display: none;
+  }
+}

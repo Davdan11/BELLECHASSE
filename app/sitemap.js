@@ -1,5 +1,13 @@
+import { getPostSummaries } from '../lib/blog';
+
 export default function sitemap() {
   const baseUrl = 'https://bellechasseenergie.com';
+  const posts = getPostSummaries().map((p) => ({
+    url: `${baseUrl}${p.url}`,
+    lastModified: new Date(p.updated || p.date),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -7,6 +15,31 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
+    },
+    {
+      url: `${baseUrl}/nos-solutions`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blogue`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...posts,
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/notre-expertise`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/produits`,

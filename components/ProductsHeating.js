@@ -11,25 +11,25 @@ export default function ProductsHeating() {
 
   return (
     <section className={styles.section}>
-      <div className={`container ${styles.container}`}>
-        
-        <motion.div 
-          className={styles.header}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeInUp}
-        >
-          <span className={styles.label}>CHAUFFER ET CLIMATISER</span>
-          <h2 className={styles.title}>
-            Deux façons de trouver<br />
-            votre équilibre.
-          </h2>
-        </motion.div>
+      <div className={`container ${styles.grid}`}>
 
-        <div className={styles.grid}>
-          {/* Card 1 */}
-          <motion.div 
+        {/* Left: header + card 01 */}
+        <div className={styles.leftCol}>
+          <motion.div
+            className={styles.header}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+          >
+            <span className={styles.label}>CHAUFFER ET CLIMATISER</span>
+            <h2 className={styles.title}>
+              Deux façons de trouver<br />
+              votre équilibre.
+            </h2>
+          </motion.div>
+
+          <motion.div
             className={styles.cardLeft}
             initial="hidden"
             whileInView="visible"
@@ -39,46 +39,46 @@ export default function ProductsHeating() {
             <div className={styles.cardContentLeft}>
               <span className={styles.number}>01</span>
               <h3 className={styles.cardTitle}>Thermopompe<br />centrale</h3>
-              <p className={styles.cardDesc}>Un système central pour toute la maison.</p>
-              
+              <p className={styles.cardDesc}>Un système central<br />pour toute la maison.</p>
+
               <Link href="/produits/thermopompe-centrale" className={styles.link}>
-                Voir les thermopompes<br />centrales
+                <span>Voir les thermopompes<br />centrales</span>
                 <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 19L19 5M19 5v14M19 5H5" />
                 </svg>
               </Link>
             </div>
             <div className={styles.imageWrapperLeft}>
-              <img src="/produit-1.webp" alt="Thermopompe centrale" />
-            </div>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div 
-            className={styles.cardRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={fadeInUp}
-          >
-            <div className={styles.imageWrapperRight}>
-              <img src="/produit-2.webp" alt="Thermopompe murale" />
-            </div>
-            <div className={styles.cardContentRight}>
-              <span className={styles.number}>02</span>
-              <h3 className={styles.cardTitle}>Thermopompe murale</h3>
-              <p className={styles.cardDesc}>Une solution pour les espaces sans conduits.</p>
-              
-              <Link href="/produits/thermopompe-murale" className={styles.link}>
-                Voir les thermopompes<br />murales
-                <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 19L19 5M19 5v14M19 5H5" />
-                </svg>
-              </Link>
+              <img src="/produit-1.webp" alt="Thermopompe centrale Daikin" />
             </div>
           </motion.div>
         </div>
-        
+
+        {/* Right: card 02 */}
+        <motion.div
+          className={styles.cardRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+        >
+          <div className={styles.imageWrapperRight}>
+            <img src="/produit-2.webp" alt="Thermopompe murale Daikin" />
+          </div>
+          <div className={styles.cardContentRight}>
+            <span className={styles.number}>02</span>
+            <h3 className={styles.cardTitle}>Thermopompe murale</h3>
+            <p className={styles.cardDesc}>Une solution pour les<br />espaces sans conduits.</p>
+
+            <Link href="/produits/thermopompe-murale" className={styles.link}>
+              <span>Voir les thermopompes<br />murales</span>
+              <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 19L19 5M19 5v14M19 5H5" />
+              </svg>
+            </Link>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

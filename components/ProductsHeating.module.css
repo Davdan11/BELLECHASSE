@@ -1,75 +1,77 @@
 .section {
-  padding: 2rem 0 6rem 0;
+  padding: 0 0 4rem 0;
   background-color: var(--bg-main);
-}
-
-.header {
-  margin-bottom: 4rem;
-}
-
-.label {
-  color: var(--primary-red);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 400;
-  color: var(--dark-blue);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 4rem;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 0;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  padding-right: 3rem;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .cardLeft {
   display: flex;
   align-items: center;
-  position: relative;
+  gap: 1rem;
 }
 
 .cardContentLeft {
-  flex: 1;
-  max-width: 250px;
-  z-index: 2;
+  flex: 0 0 200px;
 }
 
 .imageWrapperLeft {
-  flex: 2;
-  position: relative;
-  z-index: 1;
-  margin-left: -1rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .imageWrapperLeft img {
-  width: 120%;
-  max-width: 550px;
+  width: 100%;
+  max-width: 520px;
   height: auto;
   object-fit: contain;
-  transform: translateX(-5%);
 }
 
 .cardRight {
-  border-left: 1px solid var(--line-color);
-  padding-left: 4rem;
+  border-left: 1px solid #c9ced6;
+  padding-left: 3rem;
+  padding-top: 0.5rem;
   display: flex;
   flex-direction: column;
 }
 
 .imageWrapperRight {
-  margin-bottom: 2rem;
   width: 100%;
-  max-width: 350px;
-  align-self: flex-start;
+  max-width: 380px;
+  margin-bottom: 2rem;
 }
 
 .imageWrapperRight img {
@@ -86,45 +88,44 @@
 /* Common Text Styles */
 .number {
   color: var(--primary-red);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .cardTitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--dark-blue);
-  margin-bottom: 1rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
   line-height: 1.2;
 }
 
 .cardDesc {
-  font-size: 0.95rem;
-  color: var(--text-main);
+  font-size: 0.85rem;
+  color: var(--navy);
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .link {
-  display: inline-flex;
+  display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--dark-blue);
-  border-bottom: 1px solid var(--line-color);
-  padding-bottom: 0.5rem;
-  transition: all 0.3s ease;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--navy);
+  border-top: 1px solid #c9ced6;
+  padding-top: 0.75rem;
+  transition: color 0.3s ease;
   width: 100%;
-  max-width: 250px;
-  line-height: 1.3;
+  max-width: 200px;
+  line-height: 1.4;
 }
 
 .link:hover {
-  border-bottom-color: var(--primary-red);
   color: var(--primary-red);
 }
 
@@ -132,7 +133,6 @@
   width: 18px;
   height: 18px;
   color: var(--primary-red);
-  margin-left: 1rem;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -144,13 +144,16 @@
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
+  }
+  .leftCol {
+    padding-right: 0;
   }
   .cardRight {
     border-left: none;
-    border-top: 1px solid var(--line-color);
+    border-top: 1px solid #c9ced6;
     padding-left: 0;
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
 }
 
@@ -159,10 +162,11 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .imageWrapperLeft {
-    margin-top: 2rem;
+  .cardContentLeft {
+    flex: none;
   }
-  .imageWrapperLeft img {
-    transform: none;
+  .imageWrapperLeft {
+    margin-top: 1.5rem;
+    width: 100%;
   }
 }

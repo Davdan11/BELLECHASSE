@@ -1,0 +1,144 @@
+.section {
+  padding: 2.5rem 0 0 0;
+  background-color: var(--bg-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 0;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #c9ced6;
+}
+
+.left {
+  padding-right: 3rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  padding-top: 0.5rem;
+}
+
+.title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.list {
+  border-top: 1px solid #c9ced6;
+}
+
+.row {
+  border-bottom: 1px solid #c9ced6;
+  scroll-margin-top: 110px;
+}
+
+.rowLink {
+  display: grid;
+  grid-template-columns: 60px 160px 1fr 28px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  color: var(--navy);
+  transition: color 0.2s ease;
+}
+
+.rowLink:hover {
+  color: var(--primary-red);
+}
+
+.num {
+  color: var(--primary-red);
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.rowTitle {
+  font-size: 1.35rem;
+  font-weight: 300;
+}
+
+.rowDesc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.rowLink svg {
+  width: 28px;
+  height: 28px;
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.rowLink:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2.5rem;
+  border-left: 1px solid #c9ced6;
+}
+
+.image {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.caption {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .left {
+    padding-right: 0;
+  }
+  .right {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #c9ced6;
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+  .rowLink {
+    grid-template-columns: 44px 1fr 28px;
+  }
+  .rowDesc {
+    grid-column: 2 / 3;
+  }
+}

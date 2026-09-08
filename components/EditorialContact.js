@@ -36,7 +36,7 @@ export default function EditorialContact() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
         >
-          <Link href="#soumission" className={styles.btn}>
+          <Link href="/contact" className={styles.btn}>
             Demander une soumission
             <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17l9.2-9.2M17 17V7H7" />

@@ -8,11 +8,11 @@ export default function EditorialFooterFull() {
         
         <div className={styles.grid}>
           {/* Col 1 */}
-          <div className={styles.col}>
-            <img src="/logo-png.png" alt="Bellechasse Énergie" className={styles.logo} />
+          <div className={styles.logoCol}>
             <p className={styles.desc}>
               Trois générations au service de votre confort.
             </p>
+            <img src="/logo-png.png" alt="Bellechasse Énergie" className={styles.logo} />
             <p className={styles.address}>
               Grand Montréal - Laval<br />
               Rive-Nord - Rive-Sud
@@ -23,11 +23,11 @@ export default function EditorialFooterFull() {
           <div className={styles.col}>
             <span className={styles.colTitle}>Nos solutions</span>
             <div className={styles.links}>
-              <Link href="/thermopompes-centrales" className={styles.link}>Thermopompes centrales</Link>
-              <Link href="/thermopompes-murales" className={styles.link}>Thermopompes murales</Link>
-              <Link href="/climatisation" className={styles.link}>Climatisation</Link>
-              <Link href="/fournaises" className={styles.link}>Fournaises</Link>
-              <Link href="/ventilation" className={styles.link}>Ventilation</Link>
+              <Link href="/produits" className={styles.link}>Nos produits</Link>
+              <Link href="/nos-solutions#thermopompes-centrales" className={styles.link}>Thermopompes centrales</Link>
+              <Link href="/nos-solutions#thermopompes-murales" className={styles.link}>Thermopompes murales</Link>
+              <Link href="/nos-solutions#climatisation" className={styles.link}>Climatisation</Link>
+              <Link href="/nos-solutions#chauffage" className={styles.link}>Fournaises</Link>
             </div>
           </div>
 
@@ -35,12 +35,13 @@ export default function EditorialFooterFull() {
           <div className={styles.col}>
             <span className={styles.colTitle}>À découvrir</span>
             <div className={styles.links}>
-              <Link href="/financement" className={styles.link}>Financement et subventions</Link>
+              <Link href="/notre-expertise" className={styles.link}>Notre expertise</Link>
+              <Link href="/#financement" className={styles.link}>Financement et subventions</Link>
               <Link href="/promotions" className={styles.link}>Promotions</Link>
               <Link href="/manuels" className={styles.link}>Manuels</Link>
               <Link href="/temoignages" className={styles.link}>Témoignages</Link>
               <Link href="/blogue" className={styles.link}>Blogue</Link>
-              <Link href="#contact" className={styles.link}>Contact</Link>
+              <Link href="/contact" className={styles.link}>Contact</Link>
             </div>
           </div>
 
@@ -53,7 +54,7 @@ export default function EditorialFooterFull() {
               8 h à 17 h<br />
               Samedi et dimanche: fermé
             </p>
-            <Link href="#soumission" className={styles.btn}>
+            <Link href="/contact" className={styles.btn}>
               Demander une soumission
               <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 19L19 5M19 5v14M19 5H5" />

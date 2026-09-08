@@ -1,0 +1,42 @@
+.section {
+  background-color: #f6f7f9;
+  border-bottom: 3px solid var(--primary-red);
+  padding: 2.25rem 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.arrow {
+  width: 56px;
+  height: 56px;
+  color: var(--primary-red);
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .arrow {
+    display: none;
+  }
+}

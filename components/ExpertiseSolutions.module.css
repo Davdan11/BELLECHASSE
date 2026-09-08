@@ -1,0 +1,134 @@
+.section {
+  padding: 3rem 2rem; /* Even tighter */
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  color: #1a4b77;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Tighter */
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.imageColumn {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 16/10; /* Make image less tall */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.daikinLogoWrapper {
+  margin-bottom: 1rem;
+}
+
+.textColumn h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.content {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(0, 34, 54, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.certifications {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.certifItem {
+  display: flex;
+  align-items: center;
+}
+
+.certifIcon {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.certifText {
+  font-weight: 500;
+  color: #1a4b77;
+  font-size: 1rem;
+  border-left: 1px solid var(--line-color);
+  padding-left: 2rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a4b77;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-color);
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.link svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.link:hover svg {
+  transform: translate(2px, -2px);
+}

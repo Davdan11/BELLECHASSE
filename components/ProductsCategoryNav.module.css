@@ -1,45 +1,59 @@
 .navSection {
-  padding: 0 0 6rem 0;
+  padding: 0 0 4rem 0;
   background-color: var(--bg-main);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  background-color: #f2f2f2; /* Light gray background */
-  padding: 1rem 0; /* Some padding for the box itself */
-  margin: 3rem 0;
+  border-bottom: 1px solid #c9ced6;
+}
+
+.grid > div {
+  border-right: 1px solid #c9ced6;
+}
+
+.grid > div:nth-child(3n) {
+  border-right: none;
+}
+
+.grid > div:nth-child(-n+3) {
+  border-bottom: 1px solid #c9ced6;
 }
 
 .card {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align items to left */
-  gap: 1rem; /* Space between text and arrow if needed, but we'll use space-between for the whole flex */
-  text-decoration: none;
-  padding: 1.5rem 3rem; /* Adjusted padding to match the airy feel */
-  background-color: transparent; /* No white background, let the gray show through */
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.grid > div:nth-child(3n+1) .card {
+  padding-left: 0;
+}
+
+.grid > div:nth-child(3n) .card {
+  padding-right: 0;
 }
 
 .leftSide {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  flex: 1; /* Take up remaining space so arrow is pushed to right */
+  gap: 1.25rem;
 }
 
 .number {
   color: var(--primary-red);
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 400;
 }
 
 .name {
-  color: var(--dark-blue);
-  font-size: 1.1rem;
-  font-weight: 500;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
@@ -47,8 +61,8 @@
   width: 20px;
   height: 20px;
   color: var(--primary-red);
-  opacity: 0.7;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
 .card:hover .name {
@@ -57,17 +71,45 @@
 
 .card:hover .arrow {
   transform: translate(3px, -3px);
-  opacity: 1;
 }
 
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .grid > div {
+    border-right: 1px solid #c9ced6;
+    border-bottom: 1px solid #c9ced6;
+  }
+  .grid > div:nth-child(2n) {
+    border-right: none;
+  }
+  .grid > div:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .grid > div .card {
+    padding: 1.5rem 1.5rem;
+  }
+  .grid > div:nth-child(2n+1) .card {
+    padding-left: 0;
+  }
+  .grid > div:nth-child(2n) .card {
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+  .grid > div {
+    border-right: none;
+    border-bottom: 1px solid #c9ced6;
+  }
+  .grid > div:last-child {
+    border-bottom: none;
+  }
+  .grid > div .card {
+    padding: 1.25rem 0;
   }
 }

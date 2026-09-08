@@ -1,0 +1,97 @@
+.section {
+  padding: 2rem 2rem 0rem; /* Removed bottom padding */
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  color: #1a4b77;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 4rem; /* Reduced to balance the larger image */
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.imageColumn {
+  flex: 1.5; /* Increased from 1 to make the image much larger */
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.textColumn {
+  flex: 0.8; /* Reduced slightly to give more room to the image */
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.textColumn h2 {
+  font-size: clamp(3rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.content {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(0, 34, 54, 0.8);
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a4b77;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-color);
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.link svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.link:hover svg {
+  transform: translate(2px, -2px);
+}

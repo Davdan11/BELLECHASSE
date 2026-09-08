@@ -11,18 +11,22 @@ export default function EditorialSolutions() {
     {
       title: "Thermopompes centrales",
       desc: "Le confort dans toute la maison.",
+      href: "/nos-solutions#thermopompes-centrales",
     },
     {
       title: "Thermopompes murales",
       desc: "Le confort pièce par pièce.",
+      href: "/nos-solutions#thermopompes-murales",
     },
     {
       title: "Climatisation",
       desc: "Fraîcheur optimale pour l'été.",
+      href: "/nos-solutions#climatisation",
     },
     {
       title: "Ventilation",
       desc: "Une qualité d'air exceptionnelle.",
+      href: "/nos-solutions#ventilation",
     }
   ];
 
@@ -65,7 +69,7 @@ export default function EditorialSolutions() {
             {solutions.map((item, idx) => (
               <Link 
                 key={idx} 
-                href={`#${item.title.toLowerCase().replace(/ /g, '-')}`}
+                href={item.href}
                 className={`${styles.listItem} ${activeIndex === idx ? styles.active : ''}`}
                 onMouseEnter={() => setActiveIndex(idx)}
               >

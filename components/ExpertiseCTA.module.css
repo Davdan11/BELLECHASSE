@@ -1,0 +1,121 @@
+.section {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa; /* Very light grey/blue */
+  color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--line-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+.leftContent {
+  flex: 1;
+}
+
+.leftContent h2 {
+  font-size: clamp(3rem, 5vw, 5rem); /* Bigger */
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+  color: #1a4b77; /* Blue */
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Bigger gap */
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--primary-red);
+  color: white;
+  padding: 1.5rem 3rem; /* Bigger */
+  border-radius: 999px; /* Pill-shaped */
+  text-decoration: none;
+  font-weight: 700; /* Bolder */
+  font-size: 1.3rem; /* Bigger */
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-red);
+}
+
+.button svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: var(--primary-red);
+}
+
+.button:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.phone {
+  font-size: 2rem; /* Bigger */
+  font-weight: 600;
+  color: #1a4b77; /* Blue */
+}
+
+.locations {
+  font-size: 1.2rem; /* Bigger */
+  font-weight: 700; /* Bold */
+  color: #1a4b77; /* Blue */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dot {
+  color: var(--primary-red);
+  margin: 0 0.25rem;
+}
+
+.rightContent {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+.bigArrow {
+  width: 150px;
+  height: 150px;
+  color: var(--primary-red);
+}
+
+@media (max-width: 768px) {
+  .bigArrow {
+    width: 80px;
+    height: 80px;
+  }
+}

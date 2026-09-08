@@ -1,0 +1,169 @@
+.section {
+  padding: 2rem 2rem 2rem; /* Reduced even more */
+  background-color: #0055a4;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 2rem; /* Reduced even more */
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.header h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.timelineWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.line {
+  position: absolute;
+  top: 16px; /* Align with the center of the dot */
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+.points {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .points {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .line {
+    top: 0;
+    bottom: 0;
+    left: 15px; /* Center of the dot */
+    width: 1px;
+    height: 100%;
+  }
+}
+
+.point {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .point {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0 0 3rem;
+    position: relative;
+  }
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-red);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px #0055a4;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .dot {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    margin-bottom: 0;
+  }
+}
+
+.yearWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .yearWrapper {
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+}
+
+.year {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(6rem, 10vw, 10rem);
+  font-weight: 200;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+}
+
+.yearSubtitle {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .title {
+    width: 100%;
+  }
+}
+
+.desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .desc {
+    margin: 0;
+    max-width: 100%;
+  }
+}

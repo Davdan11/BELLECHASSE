@@ -1,0 +1,127 @@
+.hero {
+  padding: 7.5rem 0 0 0;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #c9ced6;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--navy);
+  margin-bottom: 3.5rem;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+.current {
+  opacity: 0.8;
+}
+
+.label {
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--navy);
+  margin-bottom: 3.5rem;
+}
+
+.territory {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.territory span {
+  margin: 0 0.6rem;
+  opacity: 0.5;
+}
+
+.imageContent {
+  position: relative;
+  min-height: 460px;
+}
+
+.wallUnit {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  width: 46%;
+  height: auto;
+  z-index: 2;
+}
+
+.outdoorUnits {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 6rem;
+  }
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+  .desc {
+    margin-bottom: 2rem;
+  }
+  .imageContent {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageContent {
+    min-height: 240px;
+  }
+}
