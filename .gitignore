@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# journal local des leads (renseignements personnels, jamais dans le dépôt)
+/data/leads
