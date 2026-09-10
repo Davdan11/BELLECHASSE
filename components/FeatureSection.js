@@ -22,7 +22,7 @@ export default function FeatureSection() {
         {/* Left Card: Murales */}
         <div className={`${styles.card} ${styles.cardLeft}`}>
           {/* Using produit-1.webp for the indoor unit as a guess. If incorrect, the user can upload a new one. */}
-          <img src="/produit-1.webp" alt="Thermopompe murale" className={styles.cardImgLeft} />
+          <Image src="/produit-1.webp" alt="Thermopompe centrale Daikin, unités extérieures" width={672} height={250} sizes="(max-width: 768px) 100vw, 50vw" className={styles.cardImgLeft} />
           
           <div className={styles.cardContent}>
             <div>

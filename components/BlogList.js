@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './BlogList.module.css';
@@ -52,7 +53,7 @@ function Card({ post, index = 0 }) {
       transition={{ duration: 0.5, delay: 0.08 * index }}
     >
       <Link href={post.url} className={styles.cardImage}>
-        <img src={post.image} alt={post.imageAlt} style={{ objectFit: post.imageFit }} loading="lazy" />
+        <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: post.imageFit }} />
       </Link>
       <span className={styles.cat}>{post.categoryLabel}</span>
       <h3 className={styles.cardTitle}>
@@ -79,7 +80,7 @@ function Featured({ post }) {
       transition={{ duration: 0.6 }}
     >
       <Link href={post.url} className={styles.featuredImage}>
-        <img src={post.image} alt={post.imageAlt} style={{ objectFit: post.imageFit }} />
+        <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: post.imageFit }} loading="eager" />
       </Link>
       <div className={styles.featuredBody}>
         <span className={styles.featuredCat}>
@@ -111,7 +112,7 @@ function Wide({ post }) {
       transition={{ duration: 0.6 }}
     >
       <Link href={post.url} className={styles.wideImage}>
-        <img src={post.image} alt={post.imageAlt} style={{ objectFit: post.imageFit }} loading="lazy" />
+        <Image src={post.image} alt={post.imageAlt} fill sizes="(max-width: 1024px) 100vw, 66vw" style={{ objectFit: post.imageFit }} />
       </Link>
       <div className={styles.wideBody}>
         <div className={styles.wideTop}>

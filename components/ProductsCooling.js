@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './ProductsCooling.module.css';
 
@@ -51,7 +52,7 @@ export default function ProductsCooling() {
             </Link>
           </div>
           <div className={styles.imageCentral}>
-            <img src="/produit-3-skyair.png" alt="Air climatisé central Daikin" />
+            <Image src="/produit-3-skyair.png" alt="Climatiseur central Daikin SkyAir, unité extérieure" width={227} height={288} sizes="250px" />
           </div>
         </motion.div>
 
@@ -76,7 +77,7 @@ export default function ProductsCooling() {
             </Link>
           </div>
           <div className={styles.imageWall}>
-            <img src="/tab-oterra.webp" alt="Air climatisé mural Daikin" />
+            <Image src="/tab-oterra.webp" alt="Climatiseur mural Daikin Oterra, unité intérieure" width={450} height={324} sizes="260px" />
           </div>
         </motion.div>
 

@@ -17,7 +17,7 @@ export default function Footer() {
               <li><Link href="#produits">Thermopompes Centrales</Link></li>
               <li><Link href="#produits">Thermopompes Murales</Link></li>
               <li><Link href="#produits">Climatisation</Link></li>
-              <li><Link href="#produits">Échangeurs d'air</Link></li>
+              <li><Link href="#produits">Échangeurs d&apos;air</Link></li>
             </ul>
           </div>
           <div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               <li>Tél: (514) 494-0400</li>
-              <li>Courriel: info@bellechasseenergie.com</li>
+              <li>Courriel: info@bellechasseenergie.ca</li>
               <li>Grand-Montréal, QC</li>
             </ul>
           </div>

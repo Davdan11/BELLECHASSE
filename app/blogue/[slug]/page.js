@@ -19,14 +19,14 @@ export async function generateMetadata({ params }) {
   const image = `${SITE_URL}${post.image}`;
 
   return {
-    title: post.title,
+    title: post.metaTitle,
     description: post.description,
     keywords: post.tags,
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
       url,
-      title: post.title,
+      title: post.metaTitle,
       description: post.description,
       siteName: 'Bellechasse Énergie',
       locale: 'fr_CA',
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: post.metaTitle,
       description: post.description,
       images: [image],
     },
@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <article className={styles.article}>
           <header className={`container ${styles.header}`}>
             <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">

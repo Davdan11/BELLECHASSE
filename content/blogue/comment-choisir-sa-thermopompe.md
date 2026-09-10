@@ -1,7 +1,8 @@
 ---
+metaTitle: "Comment choisir sa thermopompe"
 title: "Comment choisir sa thermopompe?"
 excerpt: "Les bonnes questions à poser avant de choisir."
-description: "Murale ou centrale, capacité en BTU, climat froid, bruit, subventions : les sept questions à se poser avant d'acheter une thermopompe pour une maison du Grand Montréal."
+description: "Puissance, SEER2 et HSPF2, climat froid, murale ou centrale, marque : les critères qui comptent vraiment pour choisir une thermopompe au Québec."
 category: conseils
 tags: ["thermopompe", "choisir", "BTU", "murale", "centrale", "conseils"]
 date: 2026-07-30

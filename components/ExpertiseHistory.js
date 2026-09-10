@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './ExpertiseHistory.module.css';
 
 export default function ExpertiseHistory() {
@@ -15,7 +16,7 @@ export default function ExpertiseHistory() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <img src="/section-2.webp" alt="L'équipe Bellechasse Énergie au comptoir" className={styles.image} />
+          <Image src="/section-2.webp" alt="L'équipe Bellechasse Énergie au comptoir" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" className={styles.image} />
         </motion.div>
 
         <div className={styles.textColumn}>
@@ -29,13 +30,13 @@ export default function ExpertiseHistory() {
             <h2>Des racines solides.<br />Le regard tourné vers demain.</h2>
             
             <div className={styles.content}>
-              <p>Jacques fonde Bellechasse en 1962. Daniel poursuit l'aventure, puis Nicolas prend le relais.</p>
+              <p>Jacques fonde Bellechasse en 1962. Daniel poursuit l&apos;aventure, puis Nicolas prend le relais.</p>
               <p>La proximité et le travail bien fait restent au cœur de notre métier.</p>
             </div>
 
-            <Link href="/#temoignages" className={styles.link}>
+            <Link href="#temoignages" className={styles.link}>
               Découvrir les témoignages
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <line x1="5" y1="19" x2="19" y2="5"></line>
                 <polyline points="9 5 19 5 19 15"></polyline>
               </svg>

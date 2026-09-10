@@ -6,9 +6,9 @@ import BlogCTA from '../../components/BlogCTA';
 import { getPostSummaries, SITE_URL } from '../../lib/blog';
 
 export const metadata = {
-  title: 'Blogue : conseils thermopompe, chauffage et climatisation',
+  title: 'Blogue : conseils thermopompe et chauffage',
   description:
-    "Le journal Bellechasse : des conseils clairs pour choisir, entretenir et mieux comprendre votre thermopompe, votre climatisation et votre chauffage au Québec.",
+    "Conseils pratiques sur les thermopompes, le chauffage, la climatisation et les subventions au Québec, par l'équipe Bellechasse Énergie.",
   alternates: {
     canonical: `${SITE_URL}/blogue`,
   },
@@ -46,7 +46,7 @@ export default function BloguePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <BlogHero />
         <BlogList posts={posts} />
         <BlogCTA />

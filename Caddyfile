@@ -1,0 +1,11 @@
+# HTTPS automatique (Let's Encrypt) et redirection des anciens domaines.
+bellechasseenergie.ca {
+	encode zstd gzip
+	reverse_proxy site:3000
+}
+
+www.bellechasseenergie.ca,
+chauffagethermopompeclimatisation.ca,
+www.chauffagethermopompeclimatisation.ca {
+	redir https://bellechasseenergie.ca{uri} permanent
+}

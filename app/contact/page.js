@@ -3,11 +3,12 @@ import EditorialFooterFull from '../../components/EditorialFooterFull';
 import ContactHero from '../../components/ContactHero';
 import ContactTerritory from '../../components/ContactTerritory';
 import ContactCTA from '../../components/ContactCTA';
+import { ADDRESS, EMAIL } from '../../lib/site';
 
 export const metadata = {
   title: 'Contact et soumission gratuite',
   description:
-    "Demandez une soumission gratuite pour l'installation, l'entretien ou la réparation de thermopompes, climatisation et chauffage. Grand Montréal, Laval, Rive-Nord et Rive-Sud. (514) 494-0400.",
+    'Soumission gratuite pour thermopompe, climatisation ou chauffage. Grand Montréal, Laval, Rive-Nord et Rive-Sud. Appelez au (514) 494-0400 ou écrivez-nous.',
   alternates: {
     canonical: 'https://bellechasseenergie.com/contact',
   },
@@ -27,8 +28,10 @@ const contactSchema = {
   name: 'Contact et soumission gratuite | Bellechasse Énergie',
   isPartOf: { '@id': 'https://bellechasseenergie.com/#website' },
   about: { '@id': 'https://bellechasseenergie.com/#organization' },
+  ...(ADDRESS ? { location: { '@type': 'Place', name: 'Bellechasse Énergie', address: { '@type': 'PostalAddress', streetAddress: ADDRESS.street, addressLocality: ADDRESS.city, addressRegion: ADDRESS.region, postalCode: ADDRESS.postalCode, addressCountry: 'CA' } } } : {}),
   mainEntity: {
     '@type': 'ContactPoint',
+    email: EMAIL,
     telephone: '+1-514-494-0400',
     contactType: 'customer service',
     areaServed: ['Montréal', 'Laval', 'Rive-Nord', 'Rive-Sud'],
@@ -50,7 +53,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <ContactHero />
         <ContactTerritory />
         <ContactCTA />

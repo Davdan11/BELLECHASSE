@@ -1,12 +1,13 @@
 ---
+metaTitle: "Entretenir sa thermopompe : guide"
 title: "Comment entretenir votre thermopompe"
 excerpt: "Les gestes utiles pour prendre soin de votre équipement."
-description: "Nettoyage des filtres, dégagement de l'unité extérieure, entretien annuel par un technicien : le guide complet pour garder votre thermopompe performante et durable au Québec."
+description: "Filtres, unité extérieure, dégivrage, entretien annuel : les gestes simples qui prolongent la vie de votre thermopompe et préservent la garantie."
 category: entretien
 tags: ["entretien", "thermopompe", "filtres", "nettoyage", "durée de vie", "hiver"]
 date: 2026-08-12
 author: "Bellechasse Énergie"
-image: "/installation-hands.png"
+image: "/installation-hands.webp"
 imageAlt: "Technicien effectuant l'entretien d'un système de chauffage et climatisation"
 faq:
   - q: "À quelle fréquence faut-il nettoyer les filtres d'une thermopompe murale?"

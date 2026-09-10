@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import styles from './EditorialCharity.module.css';
 
 export default function EditorialCharity() {
@@ -14,7 +15,7 @@ export default function EditorialCharity() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <img src="/logo-fondation-bruneau.webp" alt="Fondation Charles-Bruneau" className={styles.logo} />
+          <Image src="/logo-fondation-bruneau.webp" alt="Logo de la Fondation Charles-Bruneau" width={214} height={80} className={styles.logo} />
           
           <div className={styles.textWrapper}>
             <h2 className={styles.title}>Un geste qui compte.</h2>

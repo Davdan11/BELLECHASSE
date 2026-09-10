@@ -9,7 +9,7 @@ export default function Hero() {
         
         <div className={styles.heroContent}>
           <h1 className={styles.title}>
-            L'expertise<br />
+            L&apos;expertise<br />
             et le confort<br />
             depuis 1962.
           </h1>
@@ -43,7 +43,7 @@ export default function Hero() {
               <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
             </svg>
           </div>
-          Votre confort, toute l'année.
+          Votre confort, toute l&apos;année.
         </div>
       </section>
     </div>

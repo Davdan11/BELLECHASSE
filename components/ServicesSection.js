@@ -42,7 +42,7 @@ export default function ServicesSection() {
           <span className={styles.subtitle}>Nos Services</span>
           <h2 className={styles.title}>Une offre complète pour votre confort</h2>
           <p className={styles.desc}>
-            De l'achat à l'entretien, Bellechasse Énergie vous accompagne à chaque étape pour assurer le climat parfait dans votre demeure.
+            De l&apos;achat à l&apos;entretien, Bellechasse Énergie vous accompagne à chaque étape pour assurer le climat parfait dans votre demeure.
           </p>
         </div>
 

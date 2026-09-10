@@ -1,91 +1,115 @@
 .footer {
   background-color: #0055a4;
   color: white;
-  padding-top: 3rem; /* Reduced padding (tighter) */
+  padding-top: 2.5rem;
 }
 
-.grid {
+/* ---------- Rangée 1 : marque + coordonnées ---------- */
+.top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-  gap: 2rem; /* Tighter */
-  margin-bottom: 2rem; /* Tighter */
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem 3rem;
+  align-items: start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.col {
+.brand {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
-.logoCol {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centered */
-  text-align: center; /* Centered text */
+.logoLink {
+  display: inline-flex;
+  margin-bottom: 0.9rem;
 }
 
 .logo {
-  height: 100px; /* Bigger logo */
+  height: 52px;
   width: auto;
   object-fit: contain;
-  margin-bottom: 1rem;
 }
 
 .desc {
-  font-size: 1.1rem; /* Bigger text */
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.5rem;
-  max-width: 250px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  max-width: 34ch;
 }
 
 .address {
-  font-size: 1rem; /* Bigger text */
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.colTitle {
-  font-size: 1.2rem; /* Bigger text */
-  font-weight: 600;
+.address a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.social {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
-  margin-bottom: 1.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.links {
+.socialLink:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: white;
+}
+
+.socialLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.link {
-  font-size: 1rem; /* Bigger text */
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link:hover {
-  color: white;
+  align-items: flex-start;
 }
 
 .phone {
-  font-size: 1.8rem; /* Bigger phone */
+  font-size: 1.6rem;
   font-weight: 400;
   color: white;
-  text-decoration: none;
-  margin-bottom: 1rem;
-  transition: color 0.3s ease;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s ease;
 }
 
 .phone:hover {
-  color: var(--primary-red);
+  color: #ffd2d5;
+}
+
+.email {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 0.6rem;
 }
 
 .hours {
-  font-size: 1rem; /* Bigger text */
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -94,15 +118,13 @@
   gap: 0.5rem;
   background-color: var(--primary-red);
   color: white;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.2rem;
   border-radius: 999px;
-  font-size: 0.9rem; /* Bigger text */
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
+  transition: background-color 0.2s ease;
 }
 
 .btn:hover {
@@ -114,51 +136,101 @@
   height: 14px;
 }
 
+/* ---------- Rangée 2 : liens ---------- */
+.groups {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem 2rem;
+  padding: 2rem 0;
+}
+
+.groupTitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.75rem;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.link {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Barre du bas ---------- */
 .bottomBar {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 0; /* Tighter */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.9rem 0;
 }
 
 .bottomContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem; /* Bigger text */
-  color: rgba(255, 255, 255, 0.5);
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
 
 .bottomLink {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
 .bottomLink:hover {
   color: white;
 }
 
-.bottomLink svg {
-  width: 12px;
-  height: 12px;
-}
-
-@media (max-width: 1024px) {
-  .grid {
+/* ---------- Réactif ---------- */
+@media (max-width: 900px) {
+  .groups {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .grid {
+@media (max-width: 640px) {
+  .top {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 1.5rem;
+  }
+  .groups {
+    gap: 1.5rem 1.25rem;
+    padding: 1.5rem 0;
   }
   .bottomContent {
     flex-direction: column;
-    gap: 1rem;
     text-align: center;
   }
 }

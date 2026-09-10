@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './EditorialNavbar.module.css';
 
@@ -31,6 +32,7 @@ export default function EditorialNavbar({ theme = 'dark' }) {
     { href: '/financement', label: 'Financement' },
     { href: '/blogue', label: 'Blogue' },
     { href: '/contact', label: 'Contact' },
+    { href: '/rendez-vous', label: 'Prendre rendez-vous' },
   ];
 
   return (
@@ -39,7 +41,7 @@ export default function EditorialNavbar({ theme = 'dark' }) {
         
         <div className={styles.logo}>
           <Link href="/">
-            <img src="/logo-png.png" alt="Bellechasse Énergie" className={styles.logoImg} />
+            <Image src="/logo.webp" alt="Bellechasse Énergie, accueil" width={1024} height={341} priority className={styles.logoImg} />
           </Link>
         </div>
         
@@ -54,8 +56,8 @@ export default function EditorialNavbar({ theme = 'dark' }) {
         
         <div className={styles.actions}>
           <a href="tel:+15144940400" className={styles.phone}>(514) 494-0400</a>
-          <Link href="/contact" className={styles.btn}>
-            Obtenir une soumission
+          <Link href="/rendez-vous" className={styles.btn}>
+            Prendre rendez-vous
             <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>

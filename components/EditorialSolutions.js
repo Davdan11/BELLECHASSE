@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './EditorialSolutions.module.css';
@@ -49,7 +50,7 @@ export default function EditorialSolutions() {
           
           <div className={styles.imageWrapper}>
             <span className={styles.imageLabel}>DAIKIN / SYSTÈME CENTRAL</span>
-            <img src="/section-5-img.webp" alt="Système central Daikin" className={styles.image} />
+            <Image src="/section-5-img.webp" alt="Système central Daikin : deux unités extérieures de thermopompe" width={754} height={551} sizes="(max-width: 1024px) 100vw, 50vw" className={styles.image} />
           </div>
         </motion.div>
 

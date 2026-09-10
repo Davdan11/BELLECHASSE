@@ -14,9 +14,9 @@ const FAQ = [
 ];
 
 export const metadata = {
-  title: 'Financement et subventions pour thermopompe et climatisation',
+  title: 'Financement et subventions thermopompe',
   description:
-    "Subventions LogisVert et Rénoclimat, tarif bi-énergie, financement mensuel : réduisez le coût de votre thermopompe, climatisation ou chauffage. Nous vérifions votre admissibilité. Grand Montréal, Laval, Rives.",
+    'Subventions LogisVert et Rénoclimat, financement mensuel et tarifs avantageux pour votre thermopompe ou climatisation. On monte le dossier avec vous.',
   alternates: { canonical: `${SITE_URL}/financement` },
   openGraph: {
     title: 'Financement et subventions | Bellechasse Énergie',
@@ -45,7 +45,7 @@ export default function FinancementPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <section className={styles.hero}>
           <div className="container">
             <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
@@ -54,7 +54,7 @@ export default function FinancementPage() {
             <div className={styles.heroRow}>
               <div>
                 <span className={styles.eyebrow}>FINANCEMENT ET SUBVENTIONS</span>
-                <h1 className={styles.title}>Votre confort.<br />À votre rythme.</h1>
+                <h1 className={styles.title}>Financement et subventions<br />pour votre thermopompe.</h1>
               </div>
               <p className={styles.lead}>
                 Une thermopompe est un investissement, mais vous n&apos;avez pas à en porter tout le coût. Entre les programmes

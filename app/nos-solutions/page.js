@@ -8,9 +8,9 @@ import SolutionsComplete from '../../components/SolutionsComplete';
 import SolutionsCTA from '../../components/SolutionsCTA';
 
 export const metadata = {
-  title: 'Nos solutions de chauffage et climatisation',
+  title: 'Nos solutions chauffage et climatisation',
   description:
-    "Thermopompes centrales et murales, climatisation, fournaises et échangeurs d'air. Découvrez les systèmes adaptés à votre maison, installés par Bellechasse Énergie dans le Grand Montréal, Laval, Rive-Nord et Rive-Sud.",
+    "Thermopompe centrale ou murale, climatisation, fournaise, échangeur d'air : la bonne solution selon votre maison, installée par des experts depuis 1962.",
   alternates: {
     canonical: 'https://bellechasseenergie.com/nos-solutions',
   },
@@ -26,7 +26,7 @@ export default function NosSolutionsPage() {
   return (
     <>
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <SolutionsHero />
         <SolutionsTabs />
         <SolutionsCentral />

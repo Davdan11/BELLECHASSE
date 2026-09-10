@@ -3,6 +3,8 @@ import './globals.css';
 import StructuredData from '../components/SEO/StructuredData';
 import Analytics from '../components/Analytics';
 import StickyCallBar from '../components/StickyCallBar';
+import CookieConsent from '../components/CookieConsent';
+import SkipLink from '../components/SkipLink';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -14,10 +16,10 @@ const outfit = Outfit({
 export const metadata = {
   metadataBase: new URL('https://bellechasseenergie.com'),
   title: {
-    default: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
+    default: 'Thermopompes et climatisation à Montréal | Bellechasse Énergie',
     template: '%s | Bellechasse Énergie'
   },
-  description: "Installation de thermopompes, climatisation, chauffage et échangeurs d'air à Montréal, Laval, Rive-Nord et Rive-Sud depuis 1962. Détaillant autorisé Daikin. Soumission gratuite : (514) 494-0400.",
+  description: "Thermopompes, climatisation et chauffage à Montréal, Laval, Rive-Nord et Rive-Sud depuis 1962. Détaillant autorisé Daikin. Soumission gratuite : (514) 494-0400.",
   keywords: ['thermopompe', 'thermopompe Montréal', 'climatisation', 'chauffage', 'Montréal', 'Laval', 'Rive-Nord', 'Rive-Sud', 'Daikin', 'Moovair', 'Bellechasse Énergie', 'fournaise', 'échangeur d\'air', 'installation thermopompe'],
   authors: [{ name: 'Bellechasse Énergie' }],
   creator: 'Bellechasse Énergie',
@@ -28,26 +30,17 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
+    title: 'Thermopompes et climatisation à Montréal | Bellechasse Énergie',
     description: "Installation de thermopompes, climatisation et chauffage dans le Grand Montréal depuis 1962. Détaillant autorisé Daikin. Soumission gratuite.",
     url: 'https://bellechasseenergie.com',
     siteName: 'Bellechasse Énergie',
-    images: [
-      {
-        url: '/hero.jpg',
-        width: 1376,
-        height: 768,
-        alt: 'Thermopompe Daikin installée par Bellechasse Énergie à Montréal',
-      },
-    ],
     locale: 'fr_CA',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bellechasse Énergie | Thermopompe, chauffage et climatisation à Montréal',
+    title: 'Thermopompes et climatisation à Montréal | Bellechasse Énergie',
     description: 'Experts en installation de thermopompes, climatisation et chauffage depuis 1962.',
-    images: ['/hero.jpg'],
   },
   robots: {
     index: true,
@@ -78,8 +71,10 @@ export default function RootLayout({ children }) {
         <StructuredData />
       </head>
       <body>
+        <SkipLink />
         {children}
         <StickyCallBar />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>

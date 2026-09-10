@@ -22,6 +22,13 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  /* Les animations d'entrée décalent des blocs hors écran : on empêche
+     ce décalage temporaire d'élargir la page en mobile. */
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-main);
   color: var(--text-main);
@@ -49,5 +56,46 @@ ul {
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
+  }
+}
+
+/* ---------- Accessibilité globale ---------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  padding: 0.75rem 1.1rem;
+  background-color: var(--navy);
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+main:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

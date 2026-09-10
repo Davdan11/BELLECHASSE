@@ -28,7 +28,7 @@ export default function ContactForm() {
         <div className={styles.textContent}>
           <h2 className={styles.title}>Prêt à améliorer votre confort ?</h2>
           <p className={styles.subtitle}>
-            Remplissez le formulaire ci-dessous et notre équipe d'experts vous contactera rapidement pour discuter de vos besoins.
+            Remplissez le formulaire ci-dessous et notre équipe d&apos;experts vous contactera rapidement pour discuter de vos besoins.
           </p>
           
           <div className={styles.contactInfo}>
@@ -48,7 +48,7 @@ export default function ContactForm() {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
               </div>
-              <span>info@bellechasseenergie.com</span>
+              <span>info@bellechasseenergie.ca</span>
             </div>
           </div>
         </div>

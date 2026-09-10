@@ -23,9 +23,17 @@
 - [Échangeur d'air](https://bellechasseenergie.com/produits/echangeur-air)
 - [Notre expertise](https://bellechasseenergie.com/notre-expertise)
 - [Financement et subventions](https://bellechasseenergie.com/financement)
+- [Prendre rendez-vous avec un conseiller](https://bellechasseenergie.com/rendez-vous)
+- [Prix d'une thermopompe au Québec](https://bellechasseenergie.com/prix-thermopompe)
+- [Calculateur de subventions](https://bellechasseenergie.com/calculateur-subventions)
+- [Réparation et dépannage](https://bellechasseenergie.com/depannage-reparation)
+- [Notre équipe](https://bellechasseenergie.com/equipe)
+- [Carrières](https://bellechasseenergie.com/carrieres)
 - [Contact et soumission](https://bellechasseenergie.com/contact)
 
 ## Services par secteur
+
+- Une page par ville et arrondissement desservi : https://bellechasseenergie.com/thermopompe-<ville> (68 secteurs, listés dans le plan du site).
 
 - [Thermopompe Montréal](https://bellechasseenergie.com/thermopompe-montreal)
 - [Thermopompe Laval](https://bellechasseenergie.com/thermopompe-laval)
@@ -43,6 +51,10 @@
 ## Blogue
 
 - [Le journal Bellechasse](https://bellechasseenergie.com/blogue)
+- [Thermopompe en hiver au Québec : comment ça fonctionne à -25 °C](https://bellechasseenergie.com/blogue/thermopompe-hiver-quebec-moins-25)
+- [Bruit d'une thermopompe : règlements et emplacement](https://bellechasseenergie.com/blogue/bruit-thermopompe-reglements-emplacement)
+- [Thermopompe pour un plex ou un condo à Montréal](https://bellechasseenergie.com/blogue/thermopompe-plex-condo-montreal-copropriete)
+- [Entretien annuel de thermopompe : que fait le technicien](https://bellechasseenergie.com/blogue/entretien-annuel-thermopompe-technicien-cout)
 - [Les meilleures marques de thermopompes au Québec](https://bellechasseenergie.com/blogue/meilleures-marques-thermopompes-quebec)
 - [Comment entretenir votre thermopompe](https://bellechasseenergie.com/blogue/comment-entretenir-votre-thermopompe)
 - [Comment choisir sa thermopompe?](https://bellechasseenergie.com/blogue/comment-choisir-sa-thermopompe)

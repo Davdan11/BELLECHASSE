@@ -15,7 +15,7 @@ export default function GrantsSection() {
         <h2 className={styles.title}>Profitez des subventions gouvernementales</h2>
         
         <p className={styles.desc}>
-          Faites des économies importantes sur l'achat et l'installation de votre nouvelle thermopompe ou système de chauffage grâce aux programmes d'aide financière comme <span className={styles.highlight}>LogisVert</span> et <span className={styles.highlight}>Thermopompes efficaces</span>.
+          Faites des économies importantes sur l&apos;achat et l&apos;installation de votre nouvelle thermopompe ou système de chauffage grâce aux programmes d&apos;aide financière comme <span className={styles.highlight}>LogisVert</span> et <span className={styles.highlight}>Thermopompes efficaces</span>.
         </p>
         
         <Link href="/subventions" className={styles.btn}>

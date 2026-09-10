@@ -103,6 +103,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
   background-color: var(--primary-red);
   color: white;
   padding: 0.75rem 1.5rem;
@@ -252,7 +253,12 @@
   .logoImg {
     height: 44px;
   }
-  .btn span {
+  .btn {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  .btn .arrow {
     display: none;
   }
 }

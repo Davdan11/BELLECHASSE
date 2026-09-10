@@ -1,7 +1,8 @@
 ---
+metaTitle: "Meilleures marques de thermopompes"
 title: "Les meilleures marques de thermopompes au Québec"
 excerpt: "Des repères pour comparer les marques et préparer votre choix."
-description: "Daikin, Moovair, Tosot et les autres : comment comparer les marques de thermopompes pour le climat du Québec, et quels critères comptent vraiment avant d'acheter."
+description: "Daikin, Moovair, Mitsubishi, Fujitsu, Gree : comparaison des marques de thermopompes vendues au Québec, fiabilité, garantie et performance par grand froid."
 category: thermopompes
 tags: ["thermopompe", "Daikin", "Moovair", "marques", "climat froid", "Montréal"]
 date: 2026-08-25

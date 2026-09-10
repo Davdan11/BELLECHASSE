@@ -1,7 +1,8 @@
 ---
+metaTitle: "Thermopompe murale ou centrale?"
 title: "Thermopompe murale ou centrale : laquelle choisir?"
 excerpt: "Deux façons de chauffer et de climatiser. Voici comment trancher."
-description: "Thermopompe murale ou centrale? Comparez le confort, le coût, l'installation et l'efficacité des deux systèmes pour une maison du Grand Montréal, avec ou sans conduits."
+description: "Murale ou centrale : coût, confort, conduits, esthétique et efficacité. Le comparatif pour choisir la bonne thermopompe selon votre maison."
 category: thermopompes
 tags: ["thermopompe murale", "thermopompe centrale", "comparatif", "conduits", "multizone", "confort"]
 date: 2026-05-27

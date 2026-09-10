@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import styles from './ExpertiseMethod.module.css';
 
 const steps = [
@@ -47,7 +48,7 @@ export default function ExpertiseMethod() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img src="/installation-hands.png" alt="Installation" className={styles.image} />
+            <Image src="/installation-hands.webp" alt="Mains d'un technicien de Bellechasse Énergie pendant l'installation d'une thermopompe" width={1024} height={491} sizes="(max-width: 1024px) 100vw, 50vw" className={styles.image} />
           </motion.div>
         </div>
 

@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SolutionsCentral.module.css';
 
@@ -21,7 +22,7 @@ export default function SolutionsCentral() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className={styles.imageLabel}>SYSTÈMES CENTRAUX</span>
-          <img src="/solution-centrale.png" alt="Thermopompes centrales Daikin" className={styles.image} />
+          <Image src="/solution-centrale.png" alt="Thermopompes centrales Daikin, unités extérieures" width={327} height={233} sizes="(max-width: 768px) 100vw, 620px" className={styles.image} />
         </motion.div>
 
         <motion.div

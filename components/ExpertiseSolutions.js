@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ExpertiseSolutions.module.css';
 
@@ -16,7 +17,7 @@ export default function ExpertiseSolutions() {
           transition={{ duration: 0.8 }}
         >
           <div className={styles.imageWrapper}>
-            <img src="/section-5-img.webp" alt="Machine Daikin" className={styles.image} />
+            <Image src="/section-5-img.webp" alt="Unités extérieures de thermopompes centrales Daikin" width={754} height={551} sizes="(max-width: 1024px) 100vw, 50vw" className={styles.image} />
           </div>
         </motion.div>
 
@@ -30,7 +31,7 @@ export default function ExpertiseSolutions() {
             <p className={styles.eyebrow}>04 / DES SOLUTIONS RECONNUES</p>
             
             <div className={styles.daikinLogoWrapper}>
-              <img src="/marqee-3.webp" alt="Daikin" className={styles.daikinLogo} style={{ width: '150px', objectFit: 'contain' }} />
+              <Image src="/marqee-3.webp" alt="Logo Daikin" width={319} height={67} className={styles.daikinLogo} style={{ width: '150px', height: 'auto', objectFit: 'contain' }} />
             </div>
 
             <h2>Détaillant autorisé Daikin.</h2>
@@ -41,7 +42,7 @@ export default function ExpertiseSolutions() {
 
             <div className={styles.certifications}>
               <div className={styles.certifItem}>
-                <img src="/logo-cmmtq.webp" alt="CMMTQ" className={styles.certifIcon} />
+                <Image src="/logo-cmmtq.webp" alt="Logo CMMTQ, Corporation des maîtres mécaniciens en tuyauterie du Québec" width={186} height={64} className={styles.certifIcon} />
               </div>
               <div className={styles.certifText}>
                 RBQ 8103-2112-33

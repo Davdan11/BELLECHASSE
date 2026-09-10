@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+data/*.json
+.env*
+!.env.example
+*.log
+.DS_Store
+scrape.js
+vectorize.py

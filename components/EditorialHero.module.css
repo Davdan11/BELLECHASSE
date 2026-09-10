@@ -35,23 +35,29 @@
   width: 100%;
 }
 
+/* Le h1 porte la phrase-clé (thermopompes, climatisation, chauffage à Montréal)
+   avec l'apparence de l'ancien surtitre ; le slogan garde l'apparence du grand titre. */
 .subtitle {
   color: var(--primary-red);
+  font-family: inherit;
   font-size: 0.85rem;
   font-weight: 700;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
   display: block;
+  max-width: 800px;
 }
 
 .title {
   font-size: 6.5rem;
   font-weight: 400; /* Editorial look, not too bold */
   line-height: 1.05;
-  margin-bottom: 2.5rem;
+  margin: 0 0 2.5rem;
   letter-spacing: -0.03em;
   max-width: 800px;
+  color: inherit;
 }
 
 .desc {

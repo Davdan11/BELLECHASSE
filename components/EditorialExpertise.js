@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './EditorialExpertise.module.css';
@@ -7,15 +8,21 @@ export default function EditorialExpertise() {
   return (
     <section id="expertise" className={styles.section}>
       {/* Absolute image on the far left */}
-      <motion.img 
-        src="/section-2.webp" 
-        alt="Expertise Bellechasse" 
+      <motion.div
         className={styles.sideImage}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.6 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5 }}
-      />
+      >
+        <Image
+          src="/section-2.webp"
+          alt="L'équipe de Bellechasse Énergie à son kiosque, devant la bannière de l'entreprise"
+          fill
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
+        />
+      </motion.div>
 
       <div className={`container ${styles.content}`}>
         
@@ -39,7 +46,7 @@ export default function EditorialExpertise() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <span className={styles.sectionLabel}>02 / L'EXPERTISE BELLECHASSE</span>
+          <span className={styles.sectionLabel}>02 / L&apos;EXPERTISE BELLECHASSE</span>
           <h2 className={styles.title}>
             Trois générations.<br />La même exigence.
           </h2>

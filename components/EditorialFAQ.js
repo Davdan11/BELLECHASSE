@@ -74,7 +74,7 @@ export default function EditorialFAQ() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             Vous avez des questions ?<br />
-            Nous avons l'expertise.
+            Nous avons l&apos;expertise.
           </motion.h2>
         </div>
 

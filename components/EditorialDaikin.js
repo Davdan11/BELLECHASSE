@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './EditorialDaikin.module.css';
 
@@ -16,7 +17,7 @@ export default function EditorialDaikin() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <img src="/section-5-img.webp" alt="Daikin Expertise" className={styles.image} />
+          <Image src="/section-5-img.webp" alt="Deux unités extérieures de thermopompes centrales Daikin" width={754} height={551} sizes="(max-width: 1024px) 100vw, 55vw" className={styles.image} />
         </motion.div>
 
         {/* Right Column: Content */}
@@ -27,15 +28,15 @@ export default function EditorialDaikin() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <span className={styles.sectionLabel}>04 / L'EXPERTISE DAIKIN</span>
-          <img src="/daikin-12-ans.webp" alt="Daikin Logo" className={styles.logo} />
+          <span className={styles.sectionLabel}>04 / L&apos;EXPERTISE DAIKIN</span>
+          <Image src="/daikin-12-ans.webp" alt="Daikin – garantie 12 ans" width={488} height={72} className={styles.logo} />
           
           <h2 className={styles.title}>
             Détaillant autorisé.<br />Confort maîtrisé.
           </h2>
           
           <p className={styles.desc}>
-            Service d'installation de thermopompes dans le Grand Montréal.
+            Service d&apos;installation de thermopompes dans le Grand Montréal.
           </p>
           
           <Link href="/produits/thermopompe-centrale" className={styles.btn}>

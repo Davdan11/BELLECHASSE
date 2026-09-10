@@ -1,0 +1,1194 @@
+/* ==========================================================================
+   Assistant de réservation — carte, étapes, calendrier, formulaire
+   ========================================================================== */
+
+.card {
+  position: relative;
+  background-color: #f6f7f9;
+  border: 1px solid #dde2e9;
+  border-radius: 10px;
+  padding: 2rem 2.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 96px;
+}
+
+.card svg {
+  flex-shrink: 0;
+}
+
+/* ---------- Indicateur d'étapes ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  border-bottom: 2px solid #d3d9e2;
+  color: #6b7a8f;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.stepBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 0 0.6rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: inherit;
+  text-align: left;
+  border-radius: 4px;
+}
+
+button.stepBtn {
+  cursor: pointer;
+}
+
+button.stepBtn:hover .stepLabel {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+button.stepBtn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.stepNum svg {
+  width: 12px;
+  height: 12px;
+}
+
+.stepActive {
+  color: var(--navy);
+  border-bottom-color: var(--primary-red);
+}
+
+.stepActive .stepNum {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+  color: white;
+}
+
+.stepDone {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+.stepDone .stepNum {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+/* ---------- Titres et textes ---------- */
+.eyebrow {
+  display: block;
+  color: var(--primary-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  text-wrap: balance;
+}
+
+.title:focus {
+  outline: none;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.hint {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #4a5a6f;
+  margin-top: 0.45rem;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--primary-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.linkBtn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  min-width: 0;
+}
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.groupLabel svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-red);
+}
+
+/* ---------- Rappel du choix (étapes 2 et 3) ---------- */
+.recap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-left: 3px solid var(--primary-red);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+
+.recapItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.recapItem svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-red);
+}
+
+.recap .linkBtn {
+  margin-left: auto;
+}
+
+/* ---------- Secteurs ---------- */
+.areas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 64px;
+  padding: 0.9rem 1rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.area:hover {
+  border-color: var(--navy);
+}
+
+.area:active {
+  background-color: #f1f3f6;
+}
+
+.areaActive {
+  border-color: var(--primary-red);
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px var(--primary-red);
+}
+
+.area:focus-within {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.areaIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #eef2f7;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.areaActive .areaIcon {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.areaIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.areaText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.areaLabel {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.areaMeta {
+  font-size: 0.74rem;
+  color: #5b6b80;
+}
+
+.areaCheck {
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #9aa6b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.areaActive .areaCheck {
+  border-color: var(--primary-red);
+  background-color: var(--primary-red);
+}
+
+.areaCheck svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- Bandeau de confiance ---------- */
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: #5b6b80;
+}
+
+.trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.trust svg {
+  width: 14px;
+  height: 14px;
+  color: #1a8a4a;
+}
+
+/* ---------- Prochaines disponibilités ---------- */
+.openings {
+  margin-bottom: 1.25rem;
+}
+
+.openingList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.opening {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  min-height: 56px;
+  padding: 0.65rem 0.85rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  font-family: inherit;
+  color: var(--navy);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.opening:hover {
+  border-color: var(--navy);
+}
+
+.opening:active {
+  transform: scale(0.98);
+}
+
+.opening:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.openingActive {
+  border-color: var(--primary-red);
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px var(--primary-red);
+}
+
+.openingDay {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.openingSlot {
+  font-size: 0.78rem;
+  color: #5b6b80;
+}
+
+/* ---------- Calendrier ---------- */
+.calendar {
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  padding: 1rem 1rem 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.calHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  margin-bottom: 0.75rem;
+}
+
+.calMonth {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.calNav {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #d3d9e2;
+  background: white;
+  color: var(--navy);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.calNav:hover:not(:disabled) {
+  border-color: var(--navy);
+  background-color: #f6f7f9;
+}
+
+.calNav:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.calNav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calWeekday {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #6b7a8f;
+  padding-bottom: 0.35rem;
+}
+
+.calEmpty {
+  aspect-ratio: 1;
+  border-radius: 6px;
+}
+
+.calDay {
+  aspect-ratio: 1;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  color: #b3bcc9;
+  cursor: default;
+  touch-action: manipulation;
+}
+
+.calDay:disabled {
+  text-decoration: line-through;
+  text-decoration-color: #d3d9e2;
+}
+
+.calPast {
+  color: #cfd5de;
+}
+
+.calOpen {
+  color: var(--navy);
+  background-color: #eef2f7;
+  border-color: #d3d9e2;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.calOpen:hover {
+  border-color: var(--navy);
+  background-color: white;
+}
+
+.calOpen:active {
+  transform: scale(0.94);
+}
+
+.calOpen:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.calToday {
+  box-shadow: inset 0 0 0 1.5px var(--navy);
+}
+
+.calActive,
+.calActive:hover {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+  color: white;
+  box-shadow: none;
+}
+
+.legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #eaeef3;
+  font-size: 0.74rem;
+  color: #5b6b80;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendOpen,
+.legendClosed {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legendOpen {
+  background-color: #eef2f7;
+  border: 1px solid #d3d9e2;
+}
+
+.legendClosed {
+  background-color: transparent;
+  border: 1px solid #e3e7ed;
+}
+
+/* Squelette de chargement */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #eef1f5;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+.skelTitle {
+  width: 140px;
+  height: 18px;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ---------- Plages horaires ---------- */
+.slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slot:hover {
+  border-color: var(--navy);
+}
+
+.slot:focus-within {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.slotActive {
+  border-color: var(--primary-red);
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px var(--primary-red);
+}
+
+.slotCheck {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #9aa6b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.slotActive .slotCheck {
+  border-color: var(--primary-red);
+  background-color: var(--primary-red);
+}
+
+.slotCheck svg {
+  width: 12px;
+  height: 12px;
+}
+
+.slotOff {
+  color: #7c8a9c;
+  background-color: #f1f3f6;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.slotOff:hover {
+  border-color: #d3d9e2;
+}
+
+.slotNote {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7c8a9c;
+}
+
+/* ---------- Objet de la visite ---------- */
+.needs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.need {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 48px;
+  padding: 0.8rem 0.6rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--navy);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.need:hover {
+  border-color: var(--navy);
+}
+
+.need:focus-within {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.needActive {
+  border-color: var(--primary-red);
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px var(--primary-red);
+}
+
+/* ---------- Champs ---------- */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+  min-width: 0;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+
+.req {
+  color: var(--primary-red);
+}
+
+.optional {
+  font-weight: 400;
+  color: #4a5a6f;
+  font-size: 0.78rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--navy);
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 4px;
+  padding: 0.75rem 0.9rem;
+  min-height: 46px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e3d61' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9aa6b5;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(30, 61, 97, 0.12);
+}
+
+.inputError {
+  border-color: var(--primary-red) !important;
+  background-color: #fffafa !important;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #b3000c;
+  margin-top: 0.4rem;
+}
+
+.error::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  background-color: #b3000c;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--navy);
+  margin: 0.25rem 0 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.05rem;
+  accent-color: var(--primary-red);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.consentError {
+  color: #b3000c;
+}
+
+/* ---------- Résumé des erreurs ---------- */
+.errorSummary {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.1rem;
+  background-color: #fff1f1;
+  border: 1px solid #f3b7b7;
+  border-left: 3px solid #b3000c;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #8a1010;
+}
+
+.errorSummary:focus {
+  outline: 2px solid #b3000c;
+  outline-offset: 2px;
+}
+
+.errorTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.errorTitle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.errorSummary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.errorSummary a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Boutons ---------- */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.primary,
+.secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  min-height: 52px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.primary:active:not(:disabled),
+.secondary:active {
+  transform: scale(0.985);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+.primary {
+  flex: 1;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.primary svg {
+  width: 18px;
+  height: 18px;
+}
+
+.secondary {
+  background-color: white;
+  color: var(--navy);
+  border: 1px solid #d3d9e2;
+}
+
+.secondary:hover {
+  border-color: var(--navy);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.errorBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #fff1f1;
+  border: 1px solid #f3b7b7;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #8a1010;
+}
+
+.errorBox svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.1rem;
+}
+
+.errorBox a,
+.errorBox .linkBtn {
+  color: #8a1010;
+  text-decoration: underline;
+  margin-left: 0;
+  padding: 0;
+}
+
+.required {
+  font-size: 0.75rem;
+  color: var(--navy);
+  opacity: 0.8;
+  margin-top: 0.9rem;
+}
+
+/* ---------- Confirmation ---------- */
+.cardDone {
+  border-color: #bfe3cd;
+  background-color: #f4fbf6;
+}
+
+.doneIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #1a8a4a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.doneIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.summary {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.25rem;
+  padding: 1.1rem 1.25rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+}
+
+.summary div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--navy);
+}
+
+.summary dt {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.summary dt svg {
+  width: 15px;
+  height: 15px;
+}
+
+.summary dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.ref {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.06em;
+  color: var(--primary-red);
+}
+
+.calendarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  background-color: white;
+  border: 1px solid #d3d9e2;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: border-color 0.2s ease;
+}
+
+.calendarLink:hover {
+  border-color: var(--navy);
+}
+
+.calendarLink svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-red);
+}
+
+.sentNote {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--navy);
+  margin-top: 0.9rem;
+}
+
+.sentNote a {
+  color: var(--primary-red);
+  font-weight: 500;
+}
+
+/* ---------- Réactif ---------- */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem 1.15rem 1.25rem;
+    scroll-margin-top: 80px;
+  }
+  .stepLabel {
+    display: none;
+  }
+  .stepActive .stepLabel {
+    display: inline;
+  }
+  .areas,
+  .needs,
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .row {
+    gap: 0;
+  }
+  .openingList {
+    grid-template-columns: 1fr;
+  }
+  .opening {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .calGrid {
+    gap: 3px;
+  }
+  .calDay {
+    min-height: 44px;
+  }
+  .recap .linkBtn {
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+  }
+  .actions {
+    flex-direction: column-reverse;
+  }
+  .summary div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card *,
+  .card *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

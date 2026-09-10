@@ -1,7 +1,8 @@
 ---
+metaTitle: "Après le mazout : quelles options?"
 title: "Après le mazout : les options de chauffage"
 excerpt: "Explorer les solutions pour faire évoluer son système."
-description: "Le mazout tire sa révérence au Québec. Thermopompe centrale, fournaise électrique, système bi-énergie : comparez les options pour remplacer votre chauffage au mazout à Montréal, Laval et sur les Rives."
+description: "Fournaise au mazout à remplacer? Thermopompe centrale, fournaise électrique, biénergie : comparaison des coûts, des subventions et des délais au Québec."
 category: chauffage
 tags: ["mazout", "chauffage", "fournaise", "thermopompe centrale", "bi-énergie", "conversion"]
 date: 2026-07-08

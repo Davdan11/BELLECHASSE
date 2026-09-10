@@ -9,10 +9,10 @@ export default function AboutSection() {
         
         {/* Left: Image with Badge */}
         <div className={styles.imageWrapper}>
-          <img src="/section-2.webp" alt="L'équipe de Bellechasse Énergie en action" />
+          <Image src="/section-2.webp" alt="Deux membres de l'équipe de Bellechasse Énergie à leur kiosque lors d'un salon" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" />
           <div className={styles.badge}>
             <span>60+</span>
-            Ans d'expertise
+            Ans d&apos;expertise
           </div>
         </div>
 
@@ -22,10 +22,10 @@ export default function AboutSection() {
           <h2 className={styles.title}>Une expertise de confiance depuis 1962</h2>
           
           <p className={styles.desc}>
-            Fondée il y a plus de 60 ans, Bellechasse Énergie s'est imposée comme une référence incontournable en matière de chauffage et de climatisation au Québec. 
+            Fondée il y a plus de 60 ans, Bellechasse Énergie s&apos;est imposée comme une référence incontournable en matière de chauffage et de climatisation au Québec. 
           </p>
           <p className={styles.desc}>
-            Notre mission est simple : vous offrir le meilleur confort possible grâce à des équipements performants, installés selon les plus hautes normes de l'industrie, et un service à la clientèle irréprochable.
+            Notre mission est simple : vous offrir le meilleur confort possible grâce à des équipements performants, installés selon les plus hautes normes de l&apos;industrie, et un service à la clientèle irréprochable.
           </p>
 
           <ul className={styles.list}>

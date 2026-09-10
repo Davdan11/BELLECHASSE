@@ -58,7 +58,7 @@
 /* Tabs */
 .tabs {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   border-bottom: 1px solid var(--line-color);
   margin-bottom: clamp(2rem, 4vw, 3rem);
   overflow-x: auto;
@@ -72,7 +72,8 @@
 .tabBtn {
   background: none;
   border: none;
-  padding: 0 0 1rem 0;
+  min-height: 44px;
+  padding: 0.6rem 0.25rem 1rem;
   font-size: clamp(1rem, 1.2vw, 1.2rem); /* Enlarged font size */
   font-weight: 500;
   color: var(--text-muted);

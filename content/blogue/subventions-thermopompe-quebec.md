@@ -1,7 +1,8 @@
 ---
+metaTitle: "Subventions thermopompe au Québec"
 title: "Subventions pour une thermopompe au Québec : ce qu'il faut savoir"
 excerpt: "Programmes, conditions et démarches pour réduire le coût de votre projet."
-description: "LogisVert d'Hydro-Québec, Rénoclimat, tarifs bi-énergie : comment fonctionnent les subventions pour thermopompe au Québec, qui est admissible et comment ne pas passer à côté."
+description: "LogisVert d'Hydro-Québec, Rénoclimat, programmes fédéraux : les subventions pour une thermopompe au Québec, conditions et démarches en 2026."
 category: financement
 tags: ["subventions", "LogisVert", "Rénoclimat", "Hydro-Québec", "financement", "thermopompe"]
 date: 2026-06-18

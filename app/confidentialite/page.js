@@ -15,7 +15,7 @@ export default function ConfidentialitePage() {
   return (
     <>
       <EditorialNavbar theme="light" />
-      <main className={styles.page}>
+      <main id="contenu" className={styles.page}>
         <div className="container">
           <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
             <Link href="/">Accueil</Link><span>/</span><span className={styles.current}>Politique de confidentialité</span>
@@ -66,24 +66,28 @@ export default function ConfidentialitePage() {
               Ils sont protégés par des mesures raisonnables contre l&apos;accès non autorisé.
             </p>
 
-            <h2>6. Témoins (cookies)</h2>
+            <h2 id="temoins">6. Témoins (cookies)</h2>
             <p>
-              Notre site peut utiliser des témoins pour l&apos;analyse d&apos;audience et la mesure des campagnes. Vous pouvez les
-              désactiver dans les paramètres de votre navigateur sans nuire au fonctionnement du site.
+              Notre site utilise des témoins essentiels à son fonctionnement (par exemple pour mémoriser votre choix de
+              consentement) et, uniquement avec votre accord, des témoins de mesure d&apos;audience et de campagnes
+              (Google Analytics, Google Ads). Aucun témoin non essentiel n&apos;est déposé avant votre choix dans la
+              bannière affichée à votre première visite. Vous pouvez modifier ce choix à tout moment via le lien
+              « Gérer les témoins » au bas de chaque page, ou dans les paramètres de votre navigateur, sans nuire au
+              fonctionnement du site.
             </p>
 
             <h2>7. Vos droits</h2>
             <p>
               Vous pouvez demander l&apos;accès à vos renseignements, leur rectification ou leur suppression, et retirer votre
               consentement à tout moment. Écrivez-nous à{' '}
-              <a href="mailto:info@bellechasseenergie.com">info@bellechasseenergie.com</a> ou appelez au{' '}
+              <a href="mailto:info@bellechasseenergie.ca">info@bellechasseenergie.ca</a> ou appelez au{' '}
               <a href="tel:+15144940400">(514) 494-0400</a>.
             </p>
 
             <h2>8. Responsable de la protection des renseignements personnels</h2>
             <p>
               La personne responsable de la protection des renseignements personnels chez Bellechasse Énergie peut être jointe à{' '}
-              <a href="mailto:info@bellechasseenergie.com">info@bellechasseenergie.com</a>.
+              <a href="mailto:info@bellechasseenergie.ca">info@bellechasseenergie.ca</a>.
             </p>
           </div>
         </div>

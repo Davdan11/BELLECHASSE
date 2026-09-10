@@ -31,8 +31,8 @@
 .card {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   text-decoration: none;
-  group: video-card;
 }
 
 .imgWrapper {
@@ -48,6 +48,34 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+/* Bouton de lecture : couvre toute la vignette, sans style natif */
+.thumbBtn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumbBtn:focus-visible {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+}
+
+/* Lecteur YouTube injecté au clic */
+.player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: #000;
 }
 
 .card:hover .imgWrapper img {
@@ -107,10 +135,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--dark-blue);
+  cursor: pointer;
   transition: color 0.3s ease;
+}
+
+.watchLink:focus-visible {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
 }
 
 .card:hover .watchLink {

@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SolutionsWall.module.css';
 
@@ -45,7 +46,7 @@ export default function SolutionsWall() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
         >
-          <img src="/solution-murale.png" alt="Thermopompe murale Daikin" className={styles.image} />
+          <Image src="/solution-murale.png" alt="Thermopompe murale Daikin, unité intérieure" width={423} height={233} sizes="(max-width: 768px) 100vw, 560px" className={styles.image} />
           <span className={styles.giant} aria-hidden="true">02</span>
           <span className={styles.caption}>
             Un système pensé<br />pour votre espace

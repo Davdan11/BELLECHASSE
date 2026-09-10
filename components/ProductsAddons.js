@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './ProductsAddons.module.css';
 
@@ -85,7 +86,7 @@ export default function ProductsAddons() {
           variants={fadeInUp}
         >
           <div className={styles.imageWrapper}>
-            <img src="/tab-aldes.webp" alt="Échangeur d'air Aldes" />
+            <Image src="/tab-aldes.webp" alt="Échangeur d'air Aldes, unité de ventilation résidentielle" width={450} height={324} sizes="(max-width: 768px) 100vw, 560px" />
           </div>
           <div className={styles.imageCaption}>
             VENTILATION &middot; ÉCHANGEUR D&apos;AIR

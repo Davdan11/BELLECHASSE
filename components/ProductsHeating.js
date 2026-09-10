@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './ProductsHeating.module.css';
 
@@ -49,7 +50,7 @@ export default function ProductsHeating() {
               </Link>
             </div>
             <div className={styles.imageWrapperLeft}>
-              <img src="/produit-1.webp" alt="Thermopompe centrale Daikin" />
+              <Image src="/produit-1.webp" alt="Thermopompe centrale Daikin, unités extérieures" width={672} height={250} sizes="(max-width: 768px) 100vw, 520px" />
             </div>
           </motion.div>
         </div>
@@ -63,7 +64,7 @@ export default function ProductsHeating() {
           variants={fadeInUp}
         >
           <div className={styles.imageWrapperRight}>
-            <img src="/produit-2.webp" alt="Thermopompe murale Daikin" />
+            <Image src="/produit-2.webp" alt="Thermopompe murale Daikin, unité intérieure" width={672} height={250} sizes="(max-width: 768px) 100vw, 380px" />
           </div>
           <div className={styles.cardContentRight}>
             <span className={styles.number}>02</span>

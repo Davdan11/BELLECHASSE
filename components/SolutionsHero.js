@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SolutionsHero.module.css';
 
@@ -44,8 +45,8 @@ export default function SolutionsHero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <img src="/produit-2.webp" alt="Thermopompe murale Daikin" className={styles.wallUnit} />
-          <img src="/produit-1.webp" alt="Thermopompes centrales Daikin" className={styles.outdoorUnits} />
+          <Image src="/produit-2.webp" alt="Thermopompe murale Daikin, unité intérieure" width={672} height={250} sizes="(max-width: 768px) 46vw, 25vw" className={styles.wallUnit} />
+          <Image src="/produit-1.webp" alt="Thermopompes centrales Daikin, unités extérieures" width={672} height={250} sizes="(max-width: 768px) 100vw, 50vw" className={styles.outdoorUnits} loading="eager" />
         </motion.div>
 
       </div>

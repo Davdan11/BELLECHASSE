@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ContactRequestForm from './ContactRequestForm';
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL, ADDRESS, MAPS_EMBED_URL, MAPS_LINK_URL } from '../lib/site';
 import styles from './ContactHero.module.css';
 
 export default function ContactHero() {
@@ -54,8 +55,11 @@ export default function ContactHero() {
             </p>
 
             <span className={styles.label}>01 / NOUS JOINDRE</span>
-            <a href="tel:+15144940400" className={styles.phone}>(514) 494-0400</a>
-            <p className={styles.phoneNote}>Échangez avec notre équipe.</p>
+            <a href={`tel:${PHONE_TEL}`} className={styles.phone}>{PHONE_DISPLAY}</a>
+            <p className={styles.phoneNote}>
+              Échangez avec notre équipe.
+              {EMAIL && <><br /><a href={`mailto:${EMAIL}`} className={styles.inlineLink}>{EMAIL}</a></>}
+            </p>
 
             <div className={styles.block}>
               <h2 className={styles.blockTitle}>Nos horaires</h2>
@@ -66,12 +70,37 @@ export default function ContactHero() {
             </div>
 
             <div className={styles.block}>
-              <h2 className={styles.blockTitle}>Notre territoire</h2>
-              <p className={styles.blockText}>Montréal, Laval, Rive-Nord et Rive-Sud.</p>
+              <h2 className={styles.blockTitle}>Vous préférez choisir votre plage horaire?</h2>
+              <p className={styles.blockText}>
+                <Link href="/rendez-vous" className={styles.inlineLink}>Réservez en ligne la visite d&apos;un conseiller</Link>, selon les horaires de votre secteur.
+              </p>
             </div>
 
-            <div className={styles.photo}>
-              <img src="/installation-hands.png" alt="Technicien Bellechasse Énergie en installation" />
+            {ADDRESS && (
+              <div className={styles.block}>
+                <h2 className={styles.blockTitle}>Notre adresse</h2>
+                <p className={styles.blockText}>
+                  <a href={MAPS_LINK_URL} target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
+                    {ADDRESS.street}<br />{ADDRESS.city} (Québec) {ADDRESS.postalCode}
+                  </a>
+                  {ADDRESS.borough && <><br />{ADDRESS.borough}</>}
+                </p>
+              </div>
+            )}
+
+            <div className={styles.block}>
+              <h2 className={styles.blockTitle}>Notre territoire</h2>
+              <p className={styles.blockText}>Nous nous déplaçons chez vous : Montréal, Laval, Rive-Nord et Rive-Sud.</p>
+            </div>
+
+            <div className={styles.map}>
+              <iframe
+                src={MAPS_EMBED_URL}
+                title="Carte : Bellechasse Énergie, 9257 rue de Marseille, Montréal"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </motion.aside>
 

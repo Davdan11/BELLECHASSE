@@ -34,7 +34,7 @@ export default function ExpertiseTimeline() {
           transition={{ duration: 0.6 }}
         >
           <p className={styles.eyebrow}>02 / NOTRE PARCOURS</p>
-          <h2>Évoluer, sans perdre l'essentiel.</h2>
+          <h2>Évoluer, sans perdre l&apos;essentiel.</h2>
         </motion.div>
 
         <div className={styles.timelineWrapper}>

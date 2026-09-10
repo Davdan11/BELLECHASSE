@@ -22,15 +22,15 @@ export default function ExpertiseHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              L'EXPERTISE BELLECHASSE
+              L&apos;EXPERTISE BELLECHASSE
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Le savoir-faire<br />
-              se transmet.
+              Le savoir-faire en chauffage et climatisation<br />
+              se transmet depuis 1962.
             </motion.h1>
             <motion.p 
               className={styles.description}

@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import EditorialNavbar from '../../components/EditorialNavbar';
 import EditorialFooterFull from '../../components/EditorialFooterFull';
 import ContactRequestForm from '../../components/ContactRequestForm';
 import FAQBlock from '../../components/FAQBlock';
-import { LANDING_PAGES, getLanding } from '../../lib/landing';
+import { LANDING_PAGES, getLanding, getNeighbouringSectors, getAreaSectorLinks, locative } from '../../lib/landing';
 import { getCategory } from '../../lib/products';
 import { SITE_URL, AREAS, ALL_CITIES, breadcrumbSchema, faqSchema, serviceSchema, graph, ORGANIZATION_ID } from '../../lib/site';
 import styles from './landing.module.css';
@@ -39,11 +40,18 @@ export default async function LandingPage({ params }) {
   if (!page) notFound();
 
   const url = `${SITE_URL}/${page.slug}`;
-  const areaNames = page.area
-    ? (page.area.slug === 'montreal' ? ['Montréal', ...page.area.sectors.slice(0, 8)] : page.area.sectors)
-    : ALL_CITIES;
+  const isSector = page.type === 'sector';
+  const areaNames = isSector
+    ? (page.area.slug === 'montreal' ? [page.sector, 'Montréal'] : [page.sector, page.area.name])
+    : page.area
+      ? (page.area.slug === 'montreal' ? ['Montréal', ...page.area.sectors.slice(0, 8)] : page.area.sectors)
+      : ALL_CITIES;
   const products = page.products.map(getCategory).filter(Boolean);
   const otherCities = AREAS.filter((a) => !page.area || a.slug !== page.area.slug);
+  const neighbours = isSector ? getNeighbouringSectors(page.slug) : [];
+  const hubSectors = page.type === 'city' ? getAreaSectorLinks(page.area.slug) : [];
+  const hubBySector = Object.fromEntries(hubSectors.map((s) => [s.name, s.slug]));
+  const areaHref = page.area ? `/thermopompe-${page.area.slug}` : null;
 
   const schema = graph(
     {
@@ -58,16 +66,24 @@ export default async function LandingPage({ params }) {
       speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.answer'] },
     },
     serviceSchema({
-      name: page.area ? `${page.service} à ${page.area.name}` : page.service,
+      name: isSector ? `${page.service} ${locative(page.sector)}` : page.area ? `${page.service} à ${page.area.name}` : page.service,
       serviceType: page.service,
       description: page.metaDescription,
       url,
       areaNames,
     }),
-    breadcrumbSchema([
-      { name: 'Accueil', href: '/' },
-      { name: page.h1, href: `/${page.slug}` },
-    ]),
+    breadcrumbSchema(
+      isSector
+        ? [
+            { name: 'Accueil', href: '/' },
+            { name: `Thermopompe ${page.area.name}`, href: areaHref },
+            { name: page.h1, href: `/${page.slug}` },
+          ]
+        : [
+            { name: 'Accueil', href: '/' },
+            { name: page.h1, href: `/${page.slug}` },
+          ]
+    ),
     faqSchema(page.faq)
   );
 
@@ -75,13 +91,20 @@ export default async function LandingPage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <section className={styles.hero}>
           <div className={`container ${styles.heroGrid}`}>
             <div className={styles.heroText}>
               <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
                 <Link href="/">Accueil</Link><span>/</span>
-                <span className={styles.current}>{page.service}{page.area ? ` · ${page.area.name}` : ''}</span>
+                {isSector ? (
+                  <>
+                    <Link href={areaHref}>Thermopompe {page.area.name}</Link><span>/</span>
+                    <span className={styles.current}>{page.sector}</span>
+                  </>
+                ) : (
+                  <span className={styles.current}>{page.service}{page.area ? ` · ${page.area.name}` : ''}</span>
+                )}
               </nav>
               <span className={styles.eyebrow}>{page.eyebrow}</span>
               <h1 className={styles.title}>{page.h1}</h1>
@@ -131,7 +154,7 @@ export default async function LandingPage({ params }) {
             </div>
             <aside className={styles.side}>
               <div className={styles.sideImage}>
-                <img src={page.image} alt={page.imageAlt || page.h1} loading="lazy" style={page.image.endsWith('.webp') && page.image.includes('section-5') ? { objectFit: 'contain', background: '#f6f7f9' } : undefined} />
+                <Image src={page.image} alt={page.imageAlt || page.h1} fill sizes="(max-width: 1024px) 100vw, 33vw" style={{ objectFit: page.image.includes('section-5') ? 'contain' : 'cover', background: page.image.includes('section-5') ? '#f6f7f9' : undefined }} />
               </div>
               <div className={styles.sideBlock}>
                 <span className={styles.sideLabel}>Produits recommandés</span>
@@ -160,7 +183,7 @@ export default async function LandingPage({ params }) {
           </div>
         </section>
 
-        {page.area && (
+        {page.area && !isSector && (
           <section className={styles.areas}>
             <div className="container">
               <span className={styles.eyebrow}>SECTEURS DESSERVIS</span>
@@ -168,13 +191,36 @@ export default async function LandingPage({ params }) {
                 {page.area.slug === 'montreal' ? 'Tous les arrondissements de Montréal' : `Partout ${page.area.slug === 'laval' ? 'à Laval' : `sur la ${page.area.name}`}`}
               </h2>
               <ul className={styles.sectorList}>
-                {page.area.sectors.map((s) => <li key={s}>{s}</li>)}
+                {page.area.sectors.map((s) => (
+                  <li key={s}>{hubBySector[s] ? <Link href={`/${hubBySector[s]}`}>{s}</Link> : s}</li>
+                ))}
               </ul>
             </div>
           </section>
         )}
 
-        <FAQBlock faq={page.faq} title={page.area ? `Questions fréquentes à ${page.area.name}` : `Questions fréquentes : ${page.service.toLowerCase()}`} />
+        {isSector && (
+          <section className={styles.areas}>
+            <div className="container">
+              <span className={styles.eyebrow}>SECTEURS VOISINS</span>
+              <h2 className={styles.areasTitle}>
+                Nous installons aussi des thermopompes près de {page.sector}
+              </h2>
+              <ul className={styles.sectorList}>
+                {neighbours.map((s) => (
+                  <li key={s.slug}><Link href={`/${s.slug}`}>Thermopompe {s.name}</Link></li>
+                ))}
+                <li className={styles.sectorHub}>
+                  <Link href={areaHref}>
+                    {page.area.slug === 'montreal' ? 'Tous les arrondissements de Montréal' : `Tout le territoire ${page.area.slug === 'laval' ? 'de Laval' : `de la ${page.area.name}`}`}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </section>
+        )}
+
+        <FAQBlock faq={page.faq} title={isSector ? `Questions fréquentes ${locative(page.sector)}` : page.area ? `Questions fréquentes à ${page.area.name}` : `Questions fréquentes : ${page.service.toLowerCase()}`} />
 
         <section className={styles.otherAreas}>
           <div className="container">
@@ -186,9 +232,10 @@ export default async function LandingPage({ params }) {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19L19 5M19 5v14M19 5H5" /></svg>
                 </Link>
               ))}
-              {page.type === 'city' && (
+              {(page.type === 'city' || isSector) && (
                 <>
                   <Link href="/installation-thermopompe">Installation de thermopompe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19L19 5M19 5v14M19 5H5" /></svg></Link>
+                  <Link href="/prix-thermopompe">Prix d’une thermopompe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19L19 5M19 5v14M19 5H5" /></svg></Link>
                   <Link href="/remplacement-fournaise-mazout">Conversion du mazout<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19L19 5M19 5v14M19 5H5" /></svg></Link>
                 </>
               )}
@@ -203,10 +250,11 @@ export default async function LandingPage({ params }) {
               <p>Évaluation gratuite à domicile, prix ferme, subventions vérifiées.</p>
             </div>
             <div className={styles.finalActions}>
-              <Link href="/contact" className={styles.button}>
-                Demander une soumission
+              <Link href="/rendez-vous" className={styles.button}>
+                Prendre rendez-vous
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 19L19 5M19 5v14M19 5H5" /></svg>
               </Link>
+              <Link href="/contact" className={styles.finalLink}>Demander une soumission</Link>
               <a href="tel:+15144940400" className={styles.finalPhone}>(514) 494-0400</a>
             </div>
           </div>

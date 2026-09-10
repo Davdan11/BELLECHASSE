@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './EditorialProducts.module.css';
@@ -27,31 +28,31 @@ export default function EditorialProducts() {
 
   const productsMap = {
     "Thermopompe centrale": [
-      { name: "Daikin Fit", img: "/tab-daikin-fit.webp" },
-      { name: "Daikin SkyAir", img: "/tab-daikin-skyair.webp" },
-      { name: "Moovair Centrale", img: "/tab-moovair.webp" }
+      { name: "Daikin Fit", img: "/tab-daikin-fit.webp", w: 450, h: 308, alt: "Thermopompe centrale Daikin Fit, unité extérieure compacte" },
+      { name: "Daikin SkyAir", img: "/tab-daikin-skyair.webp", w: 450, h: 308, alt: "Thermopompe centrale Daikin SkyAir, unité extérieure" },
+      { name: "Moovair Centrale", img: "/tab-moovair.webp", w: 530, h: 324, alt: "Thermopompe centrale Moovair, unité extérieure" }
     ],
     "Thermopompe murale": [
-      { name: "Daikin Atmosphera", img: "/tab-daikin-atmosphera.webp" },
-      { name: "Daikin Oterra", img: "/tab-oterra.webp" },
-      { name: "Daikin Multi-Zone", img: "/tab-daikin-multi-zone-mxlh.webp" }
+      { name: "Daikin Atmosphera", img: "/tab-daikin-atmosphera.webp", w: 450, h: 308, alt: "Thermopompe murale Daikin Atmosphera, unité intérieure" },
+      { name: "Daikin Oterra", img: "/tab-oterra.webp", w: 450, h: 324, alt: "Thermopompe murale Daikin Oterra, unité intérieure" },
+      { name: "Daikin Multi-Zone", img: "/tab-daikin-multi-zone-mxlh.webp", w: 450, h: 276, alt: "Thermopompe murale Daikin Multi-Zone MXLH, unité extérieure" }
     ],
     "Air climatisé central": [
-      { name: "Daikin DX14SA", img: "/tab-daikin-dx-14sa.webp" },
-      { name: "Daikin DX16SA", img: "/tab-daikin-dx-16sa.webp" },
-      { name: "Daikin FDMQ", img: "/tab-daikin-fdmq.webp" }
+      { name: "Daikin DX14SA", img: "/tab-daikin-dx-14sa.webp", w: 450, h: 324, alt: "Climatiseur central Daikin DX14SA, unité extérieure" },
+      { name: "Daikin DX16SA", img: "/tab-daikin-dx-16sa.webp", w: 450, h: 324, alt: "Climatiseur central Daikin DX16SA, unité extérieure" },
+      { name: "Daikin FDMQ", img: "/tab-daikin-fdmq.webp", w: 450, h: 308, alt: "Unité gainable Daikin FDMQ pour climatisation par conduits" }
     ],
     "Air climatisé mural": [
-      { name: "Daikin Entra", img: "/tab-daikin-entra.webp" },
-      { name: "Mainline", img: "/tab-mainline.webp" },
-      { name: "Mainline Multi-Zone", img: "/tab-mainline-multi-zone.webp" }
+      { name: "Daikin Entra", img: "/tab-daikin-entra.webp", w: 418, h: 308, alt: "Climatiseur mural Daikin Entra, unité intérieure" },
+      { name: "Mainline", img: "/tab-mainline.webp", w: 530, h: 348, alt: "Climatiseur mural Mainline, unité intérieure" },
+      { name: "Mainline Multi-Zone", img: "/tab-mainline-multi-zone.webp", w: 450, h: 348, alt: "Climatiseur mural Mainline Multi-Zone, unité extérieure" }
     ],
     "Fournaise à air pulsé": [
-      { name: "Fournaise Steffes", img: "/tab-steffes.webp" },
-      { name: "Daikin MBVC", img: "/tab-daikin-mbvc.webp" }
+      { name: "Fournaise Steffes", img: "/tab-steffes.webp", w: 450, h: 388, alt: "Fournaise électrique Steffes à accumulation" },
+      { name: "Daikin MBVC", img: "/tab-daikin-mbvc.webp", w: 450, h: 324, alt: "Fournaise à air pulsé Daikin MBVC" }
     ],
     "Échangeur d'air": [
-      { name: "Échangeur d'air Aldes", img: "/tab-aldes.webp" }
+      { name: "Échangeur d'air Aldes", img: "/tab-aldes.webp", w: 450, h: 324, alt: "Échangeur d'air Aldes, unité de ventilation résidentielle" }
     ]
   };
 
@@ -95,7 +96,9 @@ export default function EditorialProducts() {
           {tabs.map((tab) => (
             <button 
               key={tab} 
+              type="button"
               className={`${styles.tabBtn} ${activeTab === tab ? styles.active : ''}`}
+              aria-pressed={activeTab === tab}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
@@ -104,13 +107,13 @@ export default function EditorialProducts() {
         </div>
 
         <div className={styles.controls}>
-          <button className={`${styles.controlBtn} ${styles.disabled}`}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+          <button type="button" className={`${styles.controlBtn} ${styles.disabled}`} aria-label="Produit précédent" aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M19 12H5M5 12l7-7M5 12l7 7" />
             </svg>
           </button>
-          <button className={styles.controlBtn}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{color: "var(--primary-red)"}}>
+          <button type="button" className={styles.controlBtn} aria-label="Produit suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{color: "var(--primary-red)"}} aria-hidden="true">
               <path d="M5 12h14M19 12l-7-7M19 12l-7 7" />
             </svg>
           </button>
@@ -127,7 +130,7 @@ export default function EditorialProducts() {
             <motion.div variants={itemVariants} key={product.name}>
               <Link href={`/produits/${categorySlug[activeTab]}#${product.name.toLowerCase().replace(/ /g, '-')}`} className={styles.productCard}>
                 <div className={styles.imgWrapper}>
-                  <img src={product.img} alt={product.name} />
+                  <Image src={product.img} alt={product.alt} width={product.w} height={product.h} sizes="(max-width: 768px) 90vw, 30vw" />
                 </div>
                 <h3 className={styles.productName}>{product.name}</h3>
                 <span className={styles.discover}>

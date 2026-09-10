@@ -161,6 +161,7 @@
 
 .featuredImage {
   display: block;
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
@@ -277,6 +278,7 @@
 
 .cardImage {
   display: block;
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: #eef1f5;
@@ -325,6 +327,7 @@
 
 .wideImage {
   display: block;
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: #eef1f5;

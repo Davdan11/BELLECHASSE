@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SolutionsComplete.module.css';
 
@@ -60,7 +61,7 @@ export default function SolutionsComplete() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <img src="/tab-aldes.webp" alt="Échangeur d'air Aldes" className={styles.image} />
+          <Image src="/tab-aldes.webp" alt="Échangeur d'air Aldes, unité de ventilation résidentielle" width={450} height={324} sizes="(max-width: 768px) 100vw, 460px" className={styles.image} />
           <span className={styles.caption}>ÉCHANGEUR D&apos;AIR</span>
         </motion.div>
 

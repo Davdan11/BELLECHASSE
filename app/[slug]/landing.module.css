@@ -187,6 +187,7 @@
 }
 
 .sideImage {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background-color: #eef1f5;
@@ -401,4 +402,33 @@
     align-items: flex-start;
     gap: 1rem;
   }
+}
+
+.sectorList li a {
+  color: var(--navy);
+}
+
+.sectorList li a:hover {
+  color: var(--primary-red);
+}
+
+.sectorHub {
+  background: var(--navy) !important;
+  border-color: var(--navy) !important;
+}
+
+.sectorHub a {
+  color: white !important;
+}
+
+.finalLink {
+  font-size: 0.9rem;
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.finalLink:hover {
+  color: #ff8a8a;
 }

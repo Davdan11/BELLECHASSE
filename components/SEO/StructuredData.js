@@ -1,4 +1,5 @@
-import { SITE_URL, ALL_CITIES, PHONE_SCHEMA, RBQ } from '../../lib/site';
+import { SITE_URL, ALL_CITIES, PHONE_SCHEMA, RBQ, EMAIL, ADDRESS, SOCIAL, GOOGLE_RATING } from '../../lib/site';
+import { reviewSchemas } from '../../lib/reviews';
 
 export default function StructuredData() {
   const structuredData = {
@@ -24,17 +25,23 @@ export default function StructuredData() {
         foundingDate: '1962',
         founder: { '@type': 'Person', name: 'Jacques' },
         telephone: PHONE_SCHEMA,
-        email: 'info@bellechasseenergie.com',
+        email: EMAIL,
         priceRange: '$$',
         currenciesAccepted: 'CAD',
         paymentAccepted: 'Cash, Credit Card, Debit Card, Financing',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Montréal',
+          ...(ADDRESS ? { streetAddress: ADDRESS.street, postalCode: ADDRESS.postalCode } : {}),
+          addressLocality: ADDRESS ? ADDRESS.city : 'Montréal',
           addressRegion: 'QC',
           addressCountry: 'CA',
         },
-        geo: { '@type': 'GeoCoordinates', latitude: 45.5017, longitude: -73.5673 },
+        ...(ADDRESS && ADDRESS.lat ? { geo: { '@type': 'GeoCoordinates', latitude: ADDRESS.lat, longitude: ADDRESS.lng } } : {}),
+        ...(SOCIAL.googleBusiness ? { hasMap: SOCIAL.googleBusiness } : {}),
+        ...(GOOGLE_RATING.value
+          ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: GOOGLE_RATING.value, reviewCount: GOOGLE_RATING.count, bestRating: 5, worstRating: 1 } }
+          : {}),
+        review: reviewSchemas(`${SITE_URL}/#organization`, 10),
         areaServed: [
           { '@type': 'AdministrativeArea', name: 'Grand Montréal' },
           { '@type': 'City', name: 'Laval' },
@@ -49,6 +56,7 @@ export default function StructuredData() {
             opens: '08:00',
             closes: '17:00',
           },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '00:00', closes: '00:00' },
         ],
         contactPoint: [
           {
@@ -66,7 +74,7 @@ export default function StructuredData() {
             availableLanguage: ['fr', 'en'],
           },
         ],
-        sameAs: ['https://www.facebook.com/bellechasseenergie'],
+        sameAs: Object.values(SOCIAL).filter(Boolean),
         brand: [
           { '@type': 'Brand', name: 'Daikin' },
           { '@type': 'Brand', name: 'Moovair' },

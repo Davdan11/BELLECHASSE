@@ -87,7 +87,7 @@ export default async function CategoryPage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <EditorialNavbar theme="light" />
-      <main>
+      <main id="contenu">
         <section className={styles.hero}>
           <div className={`container ${styles.heroGrid}`}>
             <div>
